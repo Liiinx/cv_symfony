@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\About;
 use App\Repository\AboutRepository;
+use App\Repository\ExperienceRepository;
 use App\Repository\SkillRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,9 +16,11 @@ class CvController extends AbstractController
      * @Route("/", name="cv")
      * @param AboutRepository $aboutRepository
      * @param SkillRepository $skillRepository
+     * @param ExperienceRepository $experienceRepository
      * @return Response
      */
-    public function index(AboutRepository $aboutRepository, SkillRepository $skillRepository)
+    public function index(AboutRepository $aboutRepository, SkillRepository $skillRepository,
+                            ExperienceRepository $experienceRepository)
     {
         $about = $aboutRepository->findOneBy(['id' => '1']);
         /*$about = $this->getDoctrine()
@@ -30,6 +33,7 @@ class CvController extends AbstractController
         return $this->render('cv/index.html.twig', [
             'about' => $about,
             'skills' => $skillRepository->findAll(),
+            'experiences' => $experienceRepository->findBy([],['id' => 'desc']), // premier paramètre tableau vide = findAll()
         ]);
     }
 
