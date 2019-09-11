@@ -1,0 +1,40 @@
+<!--compétences-->
+<section id="skills">
+    <div class="red-divider"></div>
+    <div class="heading">
+        <h2>Compétences</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-xs-12">
+                {% for key, skill in skills %}
+                    {% if key is even %}
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                 role="progressbar" aria-valuenow="{{ skill.value }}" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: {{ skill.value }}%; background-color: {{ skill.color }};">
+                                {{ skill.name }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                {% for key, skill in skills %}
+                    {% if key is odd %}
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                 role="progressbar" aria-valuenow="{{ skill.value }}" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: {{ skill.value }}%; background-color: {{ skill.color }};">
+                                {{ skill.name }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</section>
