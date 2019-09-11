@@ -1,0 +1,112 @@
+<!--portfolio-->
+
+<section id="portfolio">
+    <div class="container">
+        <div class="white-divider"></div>
+        <div class="heading">
+            <h2>Portfolio</h2>
+        </div>
+
+        <div class="row row-portfolio">
+            {% for project in projects %}
+                <div class="col-sm-4 portfolioImage">
+                    <a href="https://travelagency.liiinx.com/" target="_blank">
+                        <img class="img-thumbnail img-project" src="images/{{ project.image }}" alt="travel agency">
+                        <div class="overlay">
+                            <div class="text">
+                                <h3>{{ project.name }}</h3>
+                                <p>{{ project.abstract }}<br>
+                                    {{ project.tech }}<br>
+                                    {{ project.date }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+            <div class="col-sm-4 portfolioImage">
+                <a href="https://travelagency.liiinx.com/" target="_blank">
+                    <img class="img-thumbnail img-project" src="images/voyage.png" alt="travel agency">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Travel agency</h3>
+                            <p>Premier projet<br>
+                                HTML / CSS<br>
+                                exercice Udemy<br>
+                                Décembre 2017</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-4 portfolioImage">
+                <a href="https://wildcircus.liiinx.com/" target="_blank">
+                    <img class="img-thumbnail" src="images/lion.png" alt="wild circus">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Wild Circus</h3>
+                            <p>Test d'entrée à la Wild code school<br>
+                                HTML / CSS<br>
+                                Février-mars 2018</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-4 portfolioImage">
+                <a href="https://snake.liiinx.com/" target="_blank">
+                    <img class="img-thumbnail" src="images/serpent.png" alt="snake">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Snake</h3>
+                            <p>projet Javascript<br>
+                                Exercice Udemy<br>
+                                Avril-mai 2018</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-4 portfolioImage">
+                <a href="https://liiinx.github.io/airWild/" target="_blank">
+                    <img class="img-thumbnail" src="images/airwild.png" alt="Air Wild">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Air wild</h3>
+                            <p>Premier projet Wild code school<br>
+                                HTML / CSS / Bootstrap<br>
+                                Septembre 2018</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-4 portfolioImage">
+                <a href="https://intothewild.liiinx.com/" target="_blank">
+                    <img class="img-thumbnail" src="images/into-the-wild.png" alt="blog wild">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Into the Wild</h3>
+                            <p>Projet PHP - Blog de la Wild code school<br>
+                                PHP Objet/MVC/PDO/SQL <br>
+                                HTML/CSS/Bootstrap<br>
+                                Octobre-novenbre 2018</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-4 portfolioImage">
+                <a href="https://ventealaferme.fafachena.com/" target="_blank">
+                    <img class="img-thumbnail" src="images/vente-a-la-ferme.png" alt="Vente à la ferme">
+                    <div class="overlay">
+                        <div class="text">
+                            <h3>Vente à la ferme</h3>
+                            <p>Projet Symfony Wild code school<br>
+                                Symfony4/PHP/Twig<br>
+                                HTML/CSS/Bootstrap<br>
+                                Décembre-janvier 2018-2019</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

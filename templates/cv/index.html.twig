@@ -4,13 +4,14 @@
 
 {% block content %}
 
-
     {% include 'cv/about.html.twig' %}
     {% include 'cv/skill.html.twig' %}
     {% include 'cv/experience.html.twig' %}
+    {% include 'cv/education.html.twig' %}
+    {% include 'cv/project.html.twig' %}
+    {% include 'cv/recommendation.html.twig' %}
 
     {#test appel function dans vue
     {{ render(controller('App\\Controller\\CvController::mySkill')) }}#}
-
 
 {% endblock %}

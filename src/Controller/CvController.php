@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use App\Entity\About;
 use App\Repository\AboutRepository;
+use App\Repository\EducationRepository;
 use App\Repository\ExperienceRepository;
+use App\Repository\ProjectRepository;
+use App\Repository\RecommendationRepository;
 use App\Repository\SkillRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,10 +20,14 @@ class CvController extends AbstractController
      * @param AboutRepository $aboutRepository
      * @param SkillRepository $skillRepository
      * @param ExperienceRepository $experienceRepository
+     * @param EducationRepository $educationRepository
+     * @param ProjectRepository $projectRepository
+     * @param RecommendationRepository $recommendationRepository
      * @return Response
      */
     public function index(AboutRepository $aboutRepository, SkillRepository $skillRepository,
-                            ExperienceRepository $experienceRepository)
+                            ExperienceRepository $experienceRepository, EducationRepository $educationRepository,
+                            ProjectRepository $projectRepository, RecommendationRepository $recommendationRepository)
     {
         $about = $aboutRepository->findOneBy(['id' => '1']);
         /*$about = $this->getDoctrine()
@@ -34,6 +41,9 @@ class CvController extends AbstractController
             'about' => $about,
             'skills' => $skillRepository->findAll(),
             'experiences' => $experienceRepository->findBy([],['id' => 'desc']), // premier paramètre tableau vide = findAll()
+            'educations' => $educationRepository->findBy([],['id' => 'desc']),
+            'projects' => $projectRepository->findAll(),
+            'recommendations' => $recommendationRepository->findAll(),
         ]);
     }
 
