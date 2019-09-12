@@ -1,0 +1,119 @@
+<!--contact-->
+
+<section id="contact">
+
+    <div class="container">
+        <div class="white-divider"></div>
+        <div class="heading">
+            <h2>Contact</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <form id="contact-form" method="post" action="{{ path('contact_form') }}" role="form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="firstname">Prénom*</label>
+                            <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Votre prénom"
+                                   value="">
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="name">Nom*</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom"
+                                   value="">
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Votre email"
+                                   value="">
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Votre numéro de téléphone"
+                                   value="">
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="message">Message*</label>
+                            <textarea  id="message" name="message" class="form-control" placeholder="Votre message"  rows="4"></textarea>
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>* Ces informations sont requises</strong></p>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="g-recaptcha" data-sitekey="6Lc6TJUUAAAAAFs4y5MYlJezrHdyS02JOQMCsCSF"></div>
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="submit" class="button1" value="Envoyer">
+                        </div>
+                    </div>
+                </form>
+
+{#                form symfony#}
+
+                {{ form_start(form) }}
+                <div class="row">
+                        <div class="col-md-6">
+                            {{ form_label(form.firstName) }}
+                            {{ form_widget(form.firstName, {'attr': {'class': "form-control", 'placeholder': 'Votre prénom'}}) }}
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form_label(form.lastName) }}
+                            {{ form_widget(form.lastName, {'attr': {'class': "form-control", 'placeholder': 'Votre nom'}}) }}
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, {'attr': {'class': "form-control", 'placeholder': 'Votre email'}}) }}
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form_label(form.phone) }}
+                            {{ form_widget(form.phone, {'attr': {'class': "form-control", 'placeholder': 'Votre numéro de téléphone'}}) }}
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-12">
+                            {{ form_label(form.message) }}
+                            {{ form_widget(form.message, {'attr': {'class': "form-control", 'placeholder': 'Votre message', 'rows': '4'}}) }}
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>* Ces informations sont requises</strong></p>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="g-recaptcha" data-sitekey="6Lc6TJUUAAAAAFs4y5MYlJezrHdyS02JOQMCsCSF"></div>
+                            <p class="comments"></p>
+                        </div>
+
+                        <div class="col-md-12">
+{#                            <input type="submit" class="button1" value="Envoyer">#}
+                            {{ form_widget(form.envoyer, {'attr': {'class': "button1"}}) }}
+                        </div>
+                    </div>
+                {{ form_end(form) }}
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
