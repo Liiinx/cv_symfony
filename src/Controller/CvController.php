@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\About;
+use App\Entity\Contact;
+use App\Form\ContactType;
 use App\Repository\AboutRepository;
 use App\Repository\EducationRepository;
 use App\Repository\ExperienceRepository;
@@ -10,6 +12,7 @@ use App\Repository\ProjectRepository;
 use App\Repository\RecommendationRepository;
 use App\Repository\SkillRepository;
 use App\Service\Validator;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -32,12 +35,13 @@ class CvController extends AbstractController
      * @param ProjectRepository $projectRepository
      * @param RecommendationRepository $recommendationRepository
      * @param Request $request
+     * @param Swift_Mailer $mailer
      * @return Response
      */
     public function index(AboutRepository $aboutRepository, SkillRepository $skillRepository,
-                            ExperienceRepository $experienceRepository, EducationRepository $educationRepository,
-                            ProjectRepository $projectRepository, RecommendationRepository $recommendationRepository,
-                            Request $request)
+                          ExperienceRepository $experienceRepository, EducationRepository $educationRepository,
+                          ProjectRepository $projectRepository, RecommendationRepository $recommendationRepository,
+                          Request $request, Swift_Mailer $mailer)
     {
         $about = $aboutRepository->findOneBy(['id' => '1']);
         /*$about = $this->getDoctrine()
@@ -49,20 +53,45 @@ class CvController extends AbstractController
 
         // add form without a data class
 //        $defaultData = ['message' => 'Type your message here', 'email' => 'Votre email',];
-        $form = $this->createFormBuilder()
+        /*$form = $this->createFormBuilder()
             ->add('firstName', TextType::class)
             ->add('lastName', TextType::class)
-            ->add('phone', TextType::class)
+            ->add('phone', TextType::class, ['required'   => false])
             ->add('email', EmailType::class)
             ->add('message', TextareaType::class)
             ->add('envoyer', SubmitType::class)
-            ->getForm();
+            ->getForm();*/
 
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
+
+            $secret = '6Lc6TJUUAAAAABA6OMvpmBb7Z6BCohyCtqE1wHqv'; // votre clé privée
+            $reCaptcha = new ReCaptcha($secret);
+            $resp = $reCaptcha->verify($request->request->get('g-recaptcha-response'));
+            if ($resp->isSuccess()) {
+                // Verified!
+                $message = (new \Swift_Message('test'))
+                    ->setFrom('ftuffreaud@gmail.com')
+                    ->setTo('felix.tuffreaud@laposte.net')
+                    ->setBody($this->renderView('cv/contactMessageTemplate.html.twig',
+                           ['data' => $data]),
+                        'text/html'
+                    )
+                ;
+                $mailer->send($message);
+
+            } else {
+                $errors = $resp->getErrorCodes();
+                $this->addFlash(
+                    'warning',
+                    'Your changes were saved!'
+                );
+            }
+            return $this->redirectToRoute('cv', ['_fragment' => 'contact']);
         }
 
         return $this->render('cv/index.html.twig', [
@@ -98,7 +127,7 @@ class CvController extends AbstractController
      * @param $mailer
      * @return JsonResponse
      */
-   public function contactFormSubmit(Validator $validator, \Swift_Mailer $mailer)
+   public function contactFormSubmit(Validator $validator, Swift_Mailer $mailer)
    {
        //$siteKey = '6Lc6TJUUAAAAAFs4y5MYlJezrHdyS02JOQMCsCSF'; // votre clé publique
        $secret = '6Lc6TJUUAAAAABA6OMvpmBb7Z6BCohyCtqE1wHqv'; // votre clé privée

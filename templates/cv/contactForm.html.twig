@@ -2,6 +2,8 @@
 
 <section id="contact">
 
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
     <div class="container">
         <div class="white-divider"></div>
         <div class="heading">
@@ -10,6 +12,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
 
+{#
                 <form id="contact-form" method="post" action="{{ path('contact_form') }}" role="form">
                     <div class="row">
                         <div class="col-md-6">
@@ -60,10 +63,18 @@
                         </div>
                     </div>
                 </form>
+#}
 
 {#                form symfony#}
 
-                {{ form_start(form) }}
+                {#{% for message in app.flashes('warning') %}
+                    <div class="flash-notice">
+                        {{ message }}
+                    </div>
+                {% endfor %}#}
+
+                {{ form_start(form, {'attr': {'id': 'contact-form'}}) }}
+
                 <div class="row">
                         <div class="col-md-6">
                             {{ form_label(form.firstName) }}
