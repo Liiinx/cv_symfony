@@ -21,7 +21,6 @@ class Contact
     /**
      * @var
      * @Assert\NotBlank(message="Veuillez renseigner votre prénom")
-     * @Assert\Length(min="8", minMessage="Veuillez 8 carac")
      */
     private $firstName;
 

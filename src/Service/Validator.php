@@ -1,12 +1,9 @@
 <?php
 
-
 namespace App\Service;
-
 
 class Validator
 {
-
     public function isPhone($phone)
     {
         return preg_match("/^[0-9 ]*$/", $phone);
@@ -22,6 +19,4 @@ class Validator
         $var = htmlspecialchars($var);
         return $var;
     }
-
-
 }

@@ -11,13 +11,10 @@ use App\Repository\ExperienceRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\RecommendationRepository;
 use App\Repository\SkillRepository;
+use App\Service\Email;
 use App\Service\Validator;
 use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,12 +33,13 @@ class CvController extends AbstractController
      * @param RecommendationRepository $recommendationRepository
      * @param Request $request
      * @param Swift_Mailer $mailer
+     * @param Email $email
      * @return Response
      */
     public function index(AboutRepository $aboutRepository, SkillRepository $skillRepository,
                           ExperienceRepository $experienceRepository, EducationRepository $educationRepository,
                           ProjectRepository $projectRepository, RecommendationRepository $recommendationRepository,
-                          Request $request, Swift_Mailer $mailer)
+                          Request $request, Swift_Mailer $mailer, Email $email)
     {
         $about = $aboutRepository->findOneBy(['id' => '1']);
         /*$about = $this->getDoctrine()
@@ -51,47 +49,29 @@ class CvController extends AbstractController
 //        test appel fonction
 //        $skills = $this->mySkill($skillRepository);
 
-        // add form without a data class
-//        $defaultData = ['message' => 'Type your message here', 'email' => 'Votre email',];
-        /*$form = $this->createFormBuilder()
-            ->add('firstName', TextType::class)
-            ->add('lastName', TextType::class)
-            ->add('phone', TextType::class, ['required'   => false])
-            ->add('email', EmailType::class)
-            ->add('message', TextareaType::class)
-            ->add('envoyer', SubmitType::class)
-            ->getForm();*/
-
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
 
+            // captcha google
             $secret = '6Lc6TJUUAAAAABA6OMvpmBb7Z6BCohyCtqE1wHqv'; // votre clé privée
             $reCaptcha = new ReCaptcha($secret);
             $resp = $reCaptcha->verify($request->request->get('g-recaptcha-response'));
             if ($resp->isSuccess()) {
                 // Verified!
-                $message = (new \Swift_Message('test'))
-                    ->setFrom('ftuffreaud@gmail.com')
-                    ->setTo('felix.tuffreaud@laposte.net')
-                    ->setBody($this->renderView('cv/contactMessageTemplate.html.twig',
-                           ['data' => $data]),
-                        'text/html'
-                    )
-                ;
-                $mailer->send($message);
-
+                $email->sendMail($mailer, $data);
+                $array["isSuccess"] = true;
+                return $this->json($array);
             } else {
-                $errors = $resp->getErrorCodes();
-                $this->addFlash(
-                    'warning',
-                    'Your changes were saved!'
-                );
+                $array["captchaError"] = "merci de valider le captcha";
+                $array["isSuccess"] = false;
+            return $this->json($array);
+
             }
-            return $this->redirectToRoute('cv', ['_fragment' => 'contact']);
         }
 
         return $this->render('cv/index.html.twig', [
@@ -119,7 +99,6 @@ class CvController extends AbstractController
         ]);
 
     }*/
-
 
     /**
      * @Route("/contact_form", name="contact_form")

@@ -19,7 +19,7 @@ $(function() {
 
         $.ajax({
             type: 'POST',
-            url: '/contact_form',
+            url: '/',
             data: postdata,
             dataType: 'json',
             success: function(result) {
@@ -31,6 +31,7 @@ $(function() {
                     // setTimeout(function() {
                     //     $('.thank-you').remove();
                     // }, 3000);
+                    grecaptcha.reset();
                 } else {
                     $("#firstname + .comments").html(result.firstnameError);
                     $("#name + .comments").html(result.nameError);

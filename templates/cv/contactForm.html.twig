@@ -67,12 +67,6 @@
 
 {#                form symfony#}
 
-                {#{% for message in app.flashes('warning') %}
-                    <div class="flash-notice">
-                        {{ message }}
-                    </div>
-                {% endfor %}#}
-
                 {{ form_start(form, {'attr': {'id': 'contact-form'}}) }}
 
                 <div class="row">
@@ -116,8 +110,8 @@
                         </div>
 
                         <div class="col-md-12">
-{#                            <input type="submit" class="button1" value="Envoyer">#}
                             {{ form_widget(form.envoyer, {'attr': {'class': "button1"}}) }}
+                            <p class="message_send"></p>
                         </div>
                     </div>
                 {{ form_end(form) }}
