@@ -1,0 +1,31 @@
+easy_admin:
+    entities:
+        # List the entity class name you want to manage
+        About:
+            class: App\Entity\About
+            label: 'Moi'
+            list:
+                fields:
+                    - { property: 'name', label: 'Nom et prénom' }
+                    - { property: 'job', label: 'Votre poste actuel' }
+                    - { property: 'image', label: 'Votre photo', type: 'image', base_path: '/assets/images/' }
+            edit:
+                fields:
+                    - { property: 'name', label: 'Nom et prénom' }
+                    - { property: 'job', label: 'Votre poste actuel' }
+                    - { property: 'image', label: 'Votre photo' }
+        Skill:
+            class: App\Entity\Skill
+            label: 'Compétences'
+        Experience:
+            class: App\Entity\Experience
+            label: 'Expériences pro'
+        Education:
+            class: App\Entity\Education
+            label: 'Formations'
+        Project:
+            class: App\Entity\Project
+            label: 'Projets'
+        Recommendation:
+            class: App\Entity\Recommendation
+            label: 'Recommandations'

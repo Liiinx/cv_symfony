@@ -1,0 +1,6 @@
+easy_admin:
+    site_name: '<p>Mon admin</p><img src="/assets/images/felix.jpg" style="border-radius:50%; width:50px;" />'
+    list:
+      title: '%%entity_label%%'
+    edit:
+      title: 'Modifier %%entity_label%%'
