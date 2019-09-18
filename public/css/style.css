@@ -50,7 +50,7 @@ ul, ol {
     text-transform: uppercase;
     color: white;
     border: 1px solid white;
-    margin-top: 20px;
+    margin: 20px auto;
     padding: 18px 50px;
     border-radius: 3px;
     display: inline-block;
