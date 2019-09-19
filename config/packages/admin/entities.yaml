@@ -1,4 +1,10 @@
 easy_admin:
+    list:
+        title: '%%entity_label%%'
+    edit:
+        title: 'Modifier %%entity_label%%'
+    new:
+        title: 'Ajouter %%entity_label%%'
     entities:
         # List the entity class name you want to manage
         About:
@@ -8,12 +14,14 @@ easy_admin:
                 fields:
                     - { property: 'name', label: 'Nom et prénom' }
                     - { property: 'job', label: 'Votre poste actuel' }
-                    - { property: 'image', label: 'Votre photo', type: 'image', base_path: '/assets/images/' }
-            edit:
+#                    - { property: 'image', label: 'Votre photo', type: 'image', base_path: '/assets/images/' }
+                    - { property: 'image', label: 'Votre photo', type: 'image', base_path: '%app.path.images%'  }
+            form:  # <-- 'form' is applied to both 'new' and 'edit' views
                 fields:
                     - { property: 'name', label: 'Nom et prénom' }
                     - { property: 'job', label: 'Votre poste actuel' }
-                    - { property: 'image', label: 'Votre photo' }
+#                    - { property: 'image', label: 'Votre photo', type: 'file_upload', type_options: { upload_dir: 'public/assets/images/', upload_filename: '[slug].[extension]' } }
+                    - { property: 'imageFile', label: 'Votre photo', type: 'vich_image' }
         Skill:
             class: App\Entity\Skill
             label: 'Compétences'
