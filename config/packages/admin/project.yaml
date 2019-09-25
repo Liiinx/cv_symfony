@@ -1,0 +1,5 @@
+easy_admin:
+  entities:
+    Project:
+      class: App\Entity\Project
+      label: 'Projets'

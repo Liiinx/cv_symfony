@@ -1,0 +1,18 @@
+easy_admin:
+  entities:
+    About:
+      class: App\Entity\About
+      label: 'Moi'
+      disabled_actions: ['new', 'search']
+      list:
+        fields:
+          - { property: 'name', label: 'Nom et prénom' }
+          #                    -{ property: 'image', label: 'Votre photo', type: 'image', base_path: '/assets/images/' }
+          - { property: 'image', label: 'Votre photo', type: 'image', base_path: '%app.path.images%'  }
+          - { property: 'job', label: 'Votre poste actuel' }
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+          - { property: 'name', label: 'Nom et prénom' }
+          - { property: 'job', label: 'Votre poste actuel' }
+          #                    - { property: 'image', label: 'Votre photo', type: 'file_upload', type_options: { upload_dir: 'public/assets/images/', upload_filename: '[slug].[extension]' } }
+          - { property: 'imageFile', label: 'Votre photo', type: 'vich_image' }

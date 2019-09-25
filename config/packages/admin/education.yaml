@@ -1,0 +1,5 @@
+easy_admin:
+  entities:
+    Education:
+      class: App\Entity\Education
+      label: 'Formations'

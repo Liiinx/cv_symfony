@@ -1,0 +1,5 @@
+easy_admin:
+  entities:
+    Skill:
+      class: App\Entity\Skill
+      label: 'Compétences'
