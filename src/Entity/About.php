@@ -43,6 +43,18 @@ class About
     private $imageFile;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $cv;
+
+    /**
+     * @Vich\UploadableField(mapping="cv_doc", fileNameProperty="cv")
+     * @var File
+     */
+    private $cvFile;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      * @var DateTime
      */
@@ -100,9 +112,35 @@ class About
             $this->updatedAt = new \DateTime('now');
         }
     }
-
     public function getImageFile()
     {
         return $this->imageFile;
     }
+
+    public function getCv(): ?string
+    {
+        return $this->cv;
+    }
+
+    public function setCv(?string $cv): self
+    {
+        $this->cv = $cv;
+
+        return $this;
+    }
+
+    public function getCvFile()
+    {
+        return $this->cvFile;
+    }
+
+    public function setCvFile(File $cv = null)
+    {
+        $this->cvFile = $cv;
+        if ($cv) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
 }

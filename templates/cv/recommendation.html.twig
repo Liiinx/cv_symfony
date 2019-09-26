@@ -15,8 +15,8 @@
             <div class="carousel-inner" role="listbox">
                 {% for recommendation in recommendations %}
                     <div class="{% if loop.index0 == 0 %}carousel-item active{% else %}carousel-item{% endif %}">
-                        <h3>{{ recommendation.quote }}</h3>
-                        <h4>{{ recommendation.author }}</h4>
+                        <div class="quote">{{ recommendation.quote|raw }}</div>
+                        <h3>{{ recommendation.author }}</h3>
                     </div>
                 {% endfor %}
             </div>

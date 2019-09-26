@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     app.path.images: /assets/images/
+    app.path.cv_doc: /assets/docs/
 
 services:
     # default configuration for services in *this* file

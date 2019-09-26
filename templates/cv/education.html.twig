@@ -15,7 +15,7 @@
                     <h4>{{ education.lessonName }}</h4>
                     <div class="red-divider"></div>
                     <h5>{{ education.date }}</h5>
-                    <p>{{ education.abstract }}</p>
+                    <div class="abstract_education">{{ education.abstract|raw }}</div>
                 </div>
             </div>
             {% endfor %}

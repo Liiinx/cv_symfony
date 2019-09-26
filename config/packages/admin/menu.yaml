@@ -7,7 +7,7 @@ easy_admin:
             - { entity: 'Skill', icon: 'signal' }
             - { entity: 'Experience', icon: 'briefcase' }
             - { entity: 'Education', icon: 'graduation-cap' }
-            - { entity: 'Project', icon: 'graduation-cap' }
+            - { entity: 'Project', icon: 'archive' }
             - { entity: 'Recommendation', icon: 'handshake' }
         assets:
             favicon: '/assets/images/favicon-32x32.png'

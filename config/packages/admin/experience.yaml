@@ -4,3 +4,16 @@ easy_admin:
     Experience:
       class: App\Entity\Experience
       label: 'Expériences pro'
+      list:
+        fields:
+          - { property: 'id' }
+          - { property: 'business', label: 'Entreprise' }
+          - { property: 'job', label: 'Emploi' }
+          - { property: 'date', label: 'Date' }
+          - { property: 'task', label: 'Tâche' }
+      form:
+        fields:
+          - { property: 'business', label: 'Entreprise' }
+          - { property: 'job', label: 'Emploi' }
+          - { property: 'date', label: 'Date' }
+          - { property: 'task', label: 'Tâche', type: 'text_editor' }
