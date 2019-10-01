@@ -1,0 +1,19 @@
+easy_admin:
+    site_name: 'Mon admin'
+    formats:
+      datetime: 'd/m/Y H:i:s'
+    list:
+      title: '%%entity_label%%'
+      actions:
+#        - {name: 'show', icon: 'eye', label: 'voir', css_class: 'btn btn-secondary'}
+        - {name: 'edit', icon: 'pencil', label: 'éditer', css_class: 'btn btn-info'}
+        - {name: 'delete', icon: 'trash', label: 'supprimer', css_class: 'btn btn-danger'}
+        - {name: 'new', icon: 'plus', label: 'ajouter', css_class: 'btn btn-info'}
+        - {name: 'search', label: 'rechercher'}
+    edit:
+      title: 'Modifier %%entity_label%%'
+      actions:
+        - {name: 'delete', icon: 'trash', label: 'supprimer', css_class: 'btn btn-danger'}
+        - {name: 'list', icon: 'backward', label: 'retour à la liste'}
+    new:
+      title: 'Ajouter %%entity_label%%'

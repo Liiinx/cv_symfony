@@ -8,14 +8,14 @@
         <div class="row">
             {% for education in educations %}
             <div class="col-sm-6 col-lg-4">
-                <div class="education-block">
+                <div class="education-block" style="background-color: {{ education.bgColor }}">
 {#                    {{ dump(education) }}#}
                     <span><i class="fas fa-graduation-cap"></i></span>
                     <h3>{{ education.school }}</h3>
                     <h4>{{ education.lessonName }}</h4>
                     <div class="red-divider"></div>
                     <h5>{{ education.date }}</h5>
-                    <p>{{ education.abstract }}</p>
+                    <div class="abstract_education">{{ education.abstract|raw }}</div>
                 </div>
             </div>
             {% endfor %}

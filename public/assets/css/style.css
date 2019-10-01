@@ -41,10 +41,6 @@ section .heading h2 {
     background: #ffffff;
     margin: 0 auto;
 }
-ul, ol {
-    list-style: none;
-}
-
 .button1 {
     font-weight: bold;
     text-transform: uppercase;
@@ -137,7 +133,6 @@ a:hover {
 #skills .progress-bar {
     /*background: #000;*/
 }
-
 
 
 /*experience*/
@@ -274,8 +269,6 @@ a:hover {
     color: #000;
 }
 
-
-
 /*education*/
 
 #education {
@@ -289,7 +282,7 @@ a:hover {
     margin: 0 auto 20px auto;
     text-align: center;
     padding: 30px;
-    background-color: #ddd;
+    /*background-color: #ddd;*/
     border-radius: 10px;
     border: 2px solid #ccc;
     /*margin-bottom: 20px;*/
@@ -301,7 +294,6 @@ a:hover {
 }
 .education-block i {
     font-size: 40px;    color: #000;
-
 }
 .education-block h3 {
     color: #333333;
@@ -309,11 +301,11 @@ a:hover {
 .education-block h4 {
     margin-bottom: 20px;
 }
-.education-block p {
-    font-weight: bold;
-}
 .education-block .red-divider {
     margin-bottom: 20px;
+}
+.abstract_education {
+    text-align: left;
 }
 
 /*portfolio*/
@@ -363,6 +355,7 @@ a:hover {
     transition: .5s ease;
     background-color: #6c22b1;
     padding: 0 15px;
+    display: flex;
 }
 
 .portfolioImage:hover .overlay {
@@ -371,19 +364,18 @@ a:hover {
 
 .text {
     color: white;
-    font-size: 20px;
-    position: absolute;
+    font-size: 17px;
+    /*position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
     text-align: center;
+    margin: auto;
 }
 
-
 /*recommandations*/
-
 
 #recommandations {
     background-color: white;
@@ -396,7 +388,7 @@ a:hover {
     color: #333333;
 }
 .carousel-indicators {
-    bottom: 0;
+    bottom: -40px;
 }
 .carousel-indicators li {
     width: 10px;
@@ -408,15 +400,17 @@ a:hover {
     background-color: #333333;
 }
 #myCarousel .carousel-item {
-    padding: 40px 30px;
+    padding: 0 30px;
 }
-#myCarousel .carousel-item h3 {
+#myCarousel .carousel-item .quote {
     color: #333333;
     font-style: italic;
 }
+#recommandations .quote {
+    padding-bottom: 25px;
+}
 
 /*footer*/
-
 
 footer {
     background-color: #000;

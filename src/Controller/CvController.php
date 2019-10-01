@@ -58,7 +58,7 @@ class CvController extends AbstractController
             $data = $form->getData();
 
             // captcha google
-            $secret = '6Lc6TJUUAAAAABA6OMvpmBb7Z6BCohyCtqE1wHqv'; // votre clé privée
+            $secret = 'secret key'; // votre clé privée
             $reCaptcha = new ReCaptcha($secret);
             $resp = $reCaptcha->verify($request->request->get('g-recaptcha-response'));
             if ($resp->isSuccess()) {
@@ -79,7 +79,7 @@ class CvController extends AbstractController
             'skills' => $skillRepository->findAll(),
             'experiences' => $experienceRepository->findBy([],['id' => 'desc']), // premier paramètre tableau vide = findAll()
             'educations' => $educationRepository->findBy([],['id' => 'desc']),
-            'projects' => $projectRepository->findAll(),
+            'projects' => $projectRepository->findBy([],['id' => 'desc']),
             'recommendations' => $recommendationRepository->findAll(),
             'form' => $form->createView(),
         ]);
