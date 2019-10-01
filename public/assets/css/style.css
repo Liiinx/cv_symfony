@@ -355,6 +355,7 @@ a:hover {
     transition: .5s ease;
     background-color: #6c22b1;
     padding: 0 15px;
+    display: flex;
 }
 
 .portfolioImage:hover .overlay {
@@ -363,14 +364,15 @@ a:hover {
 
 .text {
     color: white;
-    font-size: 20px;
-    position: absolute;
+    font-size: 17px;
+    /*position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
     text-align: center;
+    margin: auto;
 }
 
 /*recommandations*/

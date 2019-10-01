@@ -79,7 +79,7 @@ class CvController extends AbstractController
             'skills' => $skillRepository->findAll(),
             'experiences' => $experienceRepository->findBy([],['id' => 'desc']), // premier paramètre tableau vide = findAll()
             'educations' => $educationRepository->findBy([],['id' => 'desc']),
-            'projects' => $projectRepository->findAll(),
+            'projects' => $projectRepository->findBy([],['id' => 'desc']),
             'recommendations' => $recommendationRepository->findAll(),
             'form' => $form->createView(),
         ]);
