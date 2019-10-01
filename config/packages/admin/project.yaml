@@ -11,6 +11,7 @@ easy_admin:
           - { property: 'tech', label: 'Technologies' }
           - { property: 'date', label: 'Date' }
           - { property: 'image', label: 'Photo d''illustration', type: 'image', base_path: '%app.path.images%'  }
+#          - { property: 'projectUrl', label: 'Lien du projet' }
       form:  # <-- 'form' is applied to both 'new' and 'edit' views
         fields:
           - { property: 'name', label: 'Nom du projet' }
@@ -18,3 +19,4 @@ easy_admin:
           - { property: 'tech', label: 'Technologies' }
           - { property: 'date', label: 'Date' }
           - { property: 'imageFile', label: 'Photo d''illustration', type: 'vich_image', type_options: { allow_delete: false } }
+          - { property: 'projectUrl', label: 'Lien du projet' }

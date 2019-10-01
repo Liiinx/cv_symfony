@@ -282,7 +282,7 @@ a:hover {
     margin: 0 auto 20px auto;
     text-align: center;
     padding: 30px;
-    background-color: #ddd;
+    /*background-color: #ddd;*/
     border-radius: 10px;
     border: 2px solid #ccc;
     /*margin-bottom: 20px;*/

@@ -36,6 +36,11 @@ class Education
      */
     private $abstract;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $bgColor;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Education
     public function setAbstract(?string $abstract): self
     {
         $this->abstract = $abstract;
+
+        return $this;
+    }
+
+    public function getBgColor(): ?string
+    {
+        return $this->bgColor;
+    }
+
+    public function setBgColor(string $bgColor): self
+    {
+        $this->bgColor = $bgColor;
 
         return $this;
     }

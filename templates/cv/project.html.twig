@@ -10,7 +10,7 @@
         <div class="row row-portfolio">
             {% for project in projects %}
                 <div class="col-sm-4 portfolioImage">
-                    <a href="https://travelagency.liiinx.com/" target="_blank">
+                    <a href="{{ project.projectUrl }}" target="_blank">
                         <img class="img-thumbnail img-project" src="assets/images/{{ project.image }}" alt="travel agency">
                         <div class="overlay">
                             <div class="text">

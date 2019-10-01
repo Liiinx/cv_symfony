@@ -58,6 +58,11 @@ class Project
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $projectUrl;
+
 
     public function getId(): ?int
     {
@@ -138,6 +143,18 @@ class Project
     public function getImageFile()
     {
         return $this->imageFile;
+    }
+
+    public function getProjectUrl(): ?string
+    {
+        return $this->projectUrl;
+    }
+
+    public function setProjectUrl(string $projectUrl): self
+    {
+        $this->projectUrl = $projectUrl;
+
+        return $this;
     }
 
 }

@@ -8,7 +8,7 @@
         <div class="row">
             {% for education in educations %}
             <div class="col-sm-6 col-lg-4">
-                <div class="education-block">
+                <div class="education-block" style="background-color: {{ education.bgColor }}">
 {#                    {{ dump(education) }}#}
                     <span><i class="fas fa-graduation-cap"></i></span>
                     <h3>{{ education.school }}</h3>
