@@ -1,0 +1,19 @@
+easy_admin:
+  entities:
+    User:
+      class: App\Entity\User
+#      appel le UserController afin de surcharger easyadmin pour encoder le password
+      controller: App\Controller\UserController
+      label: 'Admin'
+      disabled_actions: ['search']
+      list:
+        fields:
+          - { property: 'id' }
+          - { property: 'email', label: 'Email' }
+          - { property: 'password', label: 'Mot de passe' }
+          - { property: 'role', label: 'Rôle' }
+      form:
+        fields:
+          - { property: 'email', label: 'Email', type: 'email' }
+          - { property: 'password', label: 'Mot de passe', type: 'password' }
+          - { property: 'passwordConfirm', label: 'Confirmer mot de passe', type: 'password' }

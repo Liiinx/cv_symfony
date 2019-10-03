@@ -2,6 +2,9 @@ easy_admin:
     site_name: 'Mon admin'
     formats:
       datetime: 'd/m/Y H:i:s'
+    user:
+      display_name: true
+      avatar_property_path: 'gravatar'
     list:
       title: '%%entity_label%%'
       actions:
