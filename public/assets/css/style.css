@@ -417,6 +417,14 @@ footer {
     padding: 15px 0 35px;
     border-top: 1px solid #fff;
 }
+#toTop {
+    /*display: none; !* Hidden by default *!*/
+    position: fixed;
+    bottom: 30px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99;
+    cursor: pointer; /* Add a mouse pointer on hover */
+}
 footer .chevron{
     font-size:  25px;
     margin: 20px;
@@ -470,5 +478,27 @@ footer .copyright{
     margin-top: 15px;
     font-weight: bold;
     font-size: 22px;
+}
 
+/*login*/
+
+#login {
+    background-image: url("../images/acid4.jpg");
+    background-size: 30rem;
+}
+#login form {
+    max-width: 540px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    margin: 0 auto;
+    color: white;
+}
+#login input {
+    margin-bottom: 20px;
+}
+#login .logout {
+    color: white;
+}
+#login .logout:hover {
+    color: rgba(255, 255, 255, 0.8);
 }

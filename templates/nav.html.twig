@@ -10,25 +10,32 @@
     <div class="collapse navbar-collapse justify-content-center" id="myNavbar">
         <ul class="nav nav-pills navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#about">Moi</a>
+                <a class="nav-link" href="{{ path('cv') }}#about">Moi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#skills">Compétences</a>
+                <a class="nav-link" href="{{ path('cv') }}#skills">Compétences</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#experience">Expérience</a>
+                <a class="nav-link" href="{{ path('cv') }}#experience">Expérience</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#education">Formation</a>
+                <a class="nav-link" href="{{ path('cv') }}#education">Formation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#portfolio">Portfolio</a>
+                <a class="nav-link" href="{{ path('cv') }}#portfolio">Portfolio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#recommandations">Recommandations</a>
+                <a class="nav-link" href="{{ path('cv') }}#recommandations">Recommandations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact</a>
+                <a class="nav-link" href="{{ path('cv') }}#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                {% if app.user %}
+                <a title="Déconnexion" class="nav-link" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i></a>
+                {% else %}
+                <a title="Connexion" class="nav-link" href="{{ path('app_login') }}"><i class="fas fa-sign-in-alt"></i></a>
+                {% endif %}
             </li>
         </ul>
     </div>
