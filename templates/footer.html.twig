@@ -5,14 +5,9 @@
         <span><i class="chevron fas fa-chevron-up fa-2x"></i></span>
     </a>
     <p class="copyright">&copy Félix Tuffreaud</p>
-    <a href="https://github.com/Liiinx" target="_blank">
-        <span><i class="link fab fa-github fa-2x"></i></span>
-    </a>
-    <a href="https://www.linkedin.com/in/tuffreaud-felix-developpeurweb/" target="_blank">
-        <span><i class="link fab fa-linkedin fa-2x"></i></span>
-    </a>
-    <!--    <a href="mailto:ftuffreaud@gmail.com">-->
-    <a href='mail&#116;&#111;&#58;f&#116;uffre&#97;ud&#64;gm%6&#49;il&#37;2E&#99;%6&#70;&#37;6D'>
-        <span><i class="link fas fa-envelope fa-2x"></i></span>
-    </a>
+    {% for footerLink in footerLinks %}
+        <a href="{{ footerLink.link }}" target="_blank">
+            <span>{{ footerLink.icon|raw }}</span>
+        </a>
+    {% endfor %}
 </footer>

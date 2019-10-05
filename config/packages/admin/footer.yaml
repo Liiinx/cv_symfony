@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    Footer:
+      class: App\Entity\Footer
+      label: 'Liens footer'
+      list:
+        fields:
+          - { property: 'link', label: 'Lien' }
+          - { property: 'icon', label: 'Icône', type: 'raw' }
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+          - { property: 'link', label: 'Lien' }
+          - { property: 'icon', label: 'Icône' }
