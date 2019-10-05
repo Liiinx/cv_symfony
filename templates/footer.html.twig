@@ -7,7 +7,7 @@
     <p class="copyright">&copy Félix Tuffreaud</p>
     {% for footerLink in footerLinks %}
         <a href="{{ footerLink.link }}" target="_blank">
-            <span>{{ footerLink.icon|raw }}</span>
+            <span class="link">{{ footerLink.icon|raw }}</span>
         </a>
     {% endfor %}
 </footer>
