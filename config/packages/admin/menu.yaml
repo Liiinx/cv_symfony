@@ -10,5 +10,6 @@ easy_admin:
             - { entity: 'Project', icon: 'archive' }
             - { entity: 'Recommendation', icon: 'handshake' }
             - { entity: 'User', icon: 'user-secret' }
+            - { entity: 'Footer', icon: 'link' }
         assets:
             favicon: '/assets/images/favicon-32x32.png'

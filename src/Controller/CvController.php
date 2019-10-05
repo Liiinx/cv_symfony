@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\About;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\AboutRepository;
 use App\Repository\EducationRepository;
 use App\Repository\ExperienceRepository;
+use App\Repository\FooterRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\RecommendationRepository;
 use App\Repository\SkillRepository;
@@ -34,12 +34,13 @@ class CvController extends AbstractController
      * @param Request $request
      * @param Swift_Mailer $mailer
      * @param Email $email
+     * @param FooterRepository $footerRepository
      * @return Response
      */
     public function index(AboutRepository $aboutRepository, SkillRepository $skillRepository,
                           ExperienceRepository $experienceRepository, EducationRepository $educationRepository,
                           ProjectRepository $projectRepository, RecommendationRepository $recommendationRepository,
-                          Request $request, Swift_Mailer $mailer, Email $email)
+                          Request $request, Swift_Mailer $mailer, Email $email, FooterRepository $footerRepository)
     {
         $about = $aboutRepository->findOneBy(['id' => '1']);
         /*$about = $this->getDoctrine()
@@ -81,6 +82,7 @@ class CvController extends AbstractController
             'educations' => $educationRepository->findBy([],['id' => 'desc']),
             'projects' => $projectRepository->findBy([],['id' => 'desc']),
             'recommendations' => $recommendationRepository->findAll(),
+            'footerLinks' => $footerRepository->findAll(),
             'form' => $form->createView(),
         ]);
     }

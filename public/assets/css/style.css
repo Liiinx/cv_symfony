@@ -441,6 +441,7 @@ footer .copyright{
 .link {
     color: white;
     padding: 5px;
+    font-size: 38px;
 }
 .link:hover {
     color: #7a26c7;
