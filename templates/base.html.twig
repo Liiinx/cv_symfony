@@ -21,7 +21,9 @@
     <body data-spy="scroll" data-target=".navbar" data-offset="60">
         {% include 'nav.html.twig' %}
         {% block content %}{% endblock %}
-        {% include 'footer.html.twig' %}
+{#        {% include 'footer.html.twig' %}#}
+{#        test appel function dans vue#}
+    {{ render(controller('App\\Controller\\CvController::myFooter')) }}
 
 
         {% block javascripts %}{% endblock %}

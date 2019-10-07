@@ -1,3 +1,7 @@
-# My cv with symfony
+# My CV with symfony
 
-create a dynamic CV with symfony framework
+Create a dynamic CV with symfony 4 framework
+
+Manage with : 
+* Symfony 4, Security bundle, Easy admin bundle, Vich Uploader bundle.
+* Frontend : Bootstrap, HTML, CSS, JS, AJAX.

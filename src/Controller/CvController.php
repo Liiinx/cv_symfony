@@ -34,13 +34,12 @@ class CvController extends AbstractController
      * @param Request $request
      * @param Swift_Mailer $mailer
      * @param Email $email
-     * @param FooterRepository $footerRepository
      * @return Response
      */
     public function index(AboutRepository $aboutRepository, SkillRepository $skillRepository,
                           ExperienceRepository $experienceRepository, EducationRepository $educationRepository,
                           ProjectRepository $projectRepository, RecommendationRepository $recommendationRepository,
-                          Request $request, Swift_Mailer $mailer, Email $email, FooterRepository $footerRepository)
+                          Request $request, Swift_Mailer $mailer, Email $email)
     {
         $about = $aboutRepository->findOneBy(['id' => '1']);
         /*$about = $this->getDoctrine()
@@ -82,25 +81,22 @@ class CvController extends AbstractController
             'educations' => $educationRepository->findBy([],['id' => 'desc']),
             'projects' => $projectRepository->findBy([],['id' => 'desc']),
             'recommendations' => $recommendationRepository->findAll(),
-            'footerLinks' => $footerRepository->findAll(),
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @param SkillRepository $skillRepository
+     * @param FooterRepository $footerRepository
      * @return Response
      */
-
-   /* public function mySkill(SkillRepository $skillRepository)
+    public function myFooter(FooterRepository $footerRepository)
     {
-        $skills = $skillRepository->findAll();
-
-        return $this->render('cv/skill.html.twig', [
-           'skills' => $skills,
+        $footerLinks = $footerRepository->findAll();
+        return $this->render('footer.html.twig', [
+           'footerLinks' => $footerLinks,
         ]);
 
-    }*/
+    }
 
     /**
      * @Route("/contact_form", name="contact_form")
