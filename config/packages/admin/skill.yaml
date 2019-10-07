@@ -1,0 +1,18 @@
+easy_admin:
+  entities:
+    Skill:
+      class: App\Entity\Skill
+      label: 'Compétences'
+      list:
+        fields:
+          - { property: 'id' }
+          - { property: 'name', label: 'Nom' }
+          - { property: 'value', label: 'Valeur' }
+          - { property: 'color', label: 'Couleur' }
+      form:
+        fields:
+          - { property: 'name', label: 'Nom' }
+          - { property: 'value', label: 'Valeur' }
+          - { property: 'color', label: 'Couleur', type: 'color' }
+
+

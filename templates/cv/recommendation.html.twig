@@ -1,0 +1,31 @@
+<!--recommandations-->
+
+<section id="recommandations">
+    <div class="container">
+        <div class="red-divider"></div>
+        <div class="heading">
+            <h2>Recommandations</h2>
+        </div>
+        <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for recommendation in recommendations %}
+                    <li data-target="#myCarousel" data-slide-to="{{ loop.index0 }}" {% if loop.index0 == 0 %} class="active" {% endif %}></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                {% for recommendation in recommendations %}
+                    <div class="{% if loop.index0 == 0 %}carousel-item active{% else %}carousel-item{% endif %}">
+                        <div class="quote">{{ recommendation.quote|raw }}</div>
+                        <h3>{{ recommendation.author }}</h3>
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev" role="button">
+                <span><i class="fas fa-chevron-left fa-2x"></i></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" data-slide="next" role="button">
+                <span><i class="fas fa-chevron-right fa-2x"></i></span>
+            </a>
+        </div>
+    </div>
+</section>

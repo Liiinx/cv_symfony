@@ -1,0 +1,19 @@
+easy_admin:
+  entities:
+    Education:
+      class: App\Entity\Education
+      label: 'Formations'
+      list:
+        fields:
+          - { property: 'id' }
+          - { property: 'school', label: 'Ecole' }
+          - { property: 'lesson_name', label: 'Spécialité' }
+          - { property: 'date', label: 'Date' }
+          - { property: 'abstract', label: 'Résumé' }
+      form:
+        fields:
+          - { property: 'school', label: 'Ecole' }
+          - { property: 'lesson_name', label: 'Spécialité' }
+          - { property: 'date', label: 'Date' }
+          - { property: 'abstract', label: 'Résumé', type: 'text_editor' }
+          - { property: 'bgColor', label: 'Couleur de fond du block', type: 'color' }

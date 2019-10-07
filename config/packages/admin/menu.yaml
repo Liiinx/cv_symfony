@@ -1,0 +1,15 @@
+easy_admin:
+    design:
+        brand_color: 'blue'
+        menu:
+#            - { label: 'Tableau de bord', route: 'admin_dashboard', default: true, icon: 'home' }
+            - { entity: 'About', icon: 'user' }
+            - { entity: 'Skill', icon: 'signal' }
+            - { entity: 'Experience', icon: 'briefcase' }
+            - { entity: 'Education', icon: 'graduation-cap' }
+            - { entity: 'Project', icon: 'archive' }
+            - { entity: 'Recommendation', icon: 'handshake' }
+            - { entity: 'Footer', icon: 'link' }
+            - { entity: 'User', icon: 'user-secret' }
+        assets:
+            favicon: '/assets/images/favicon-32x32.png'

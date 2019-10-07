@@ -1,0 +1,14 @@
+easy_admin:
+    entities:
+        Recommendation:
+            class: App\Entity\Recommendation
+            label: 'Recommandations'
+            list:
+                fields:
+                    - { property: 'id' }
+                    - { property: 'author', label: 'Auteur' }
+                    - { property: 'quote', label: 'Citation' }
+            form:
+                fields:
+                    - { property: 'author', label: 'Auteur' }
+                    - { property: 'quote', label: 'Citation', type: 'text_editor' }
