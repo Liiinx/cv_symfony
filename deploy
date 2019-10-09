@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -av --delete-after ./ u96511042@access773537801.webspace-data.io:~/cv_symfony --include=public/bundles --include=public/.htaccess --include=vendor --exclude-from=.gitignore --exclude=".*"

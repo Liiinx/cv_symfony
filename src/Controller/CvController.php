@@ -60,6 +60,7 @@ class CvController extends AbstractController
             // captcha google
             //$siteKey = '6Lc6TJUUAAAAAFs4y5MYlJezrHdyS02JOQMCsCSF'; // votre clé publique
             $secret = 'secret key'; // votre clé privée
+
             $reCaptcha = new ReCaptcha($secret);
             $resp = $reCaptcha->verify($request->request->get('g-recaptcha-response'));
             if ($resp->isSuccess()) {
