@@ -58,6 +58,9 @@ section .heading h2 {
     color: #000;
     text-decoration: none;
 }
+a {
+    transition: all 0.3s ease-in 0s;
+}
 a:hover {
     text-decoration: none;
 }
@@ -139,11 +142,24 @@ a:hover {
 
 #experience {
     /*background: #333333;*/
-    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url("../images/acid5.jpg");
+    /*background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url("../images/acid5.jpg");*/
+    background-image: url("../images/acid5.jpg");
     background-size: 30rem;
 }
 #experience .heading h2 {
     color: white;
+}
+#experience i {
+    margin-right: 5px;
+}
+#experience .timeline-footer {
+    padding-top: 10px;
+}
+#experience .timeline-footer a {
+    color: #6c757d;
+}
+#experience .timeline-footer a:hover {
+    color: #7a26c7;
 }
 .timeline {
     padding: 30px 10px;
@@ -159,7 +175,7 @@ a:hover {
     left: 50%;
     margin-left: -2.5px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .timeline:before {
         left: 98%;
     }
@@ -188,7 +204,7 @@ a:hover {
     background-color: #ddd;
     border-radius: 50%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .timeline li .timeline-badge {
         left: 100%;
     }
@@ -197,7 +213,7 @@ a:hover {
     width: 50%;
     float: left;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .timeline-panel-container {
         width: 100%;
     }
@@ -206,7 +222,7 @@ a:hover {
     width: 50%;
     float: right;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
     .timeline-panel-container-inverted {
         float: left;
         width: 100%;
@@ -227,7 +243,7 @@ a:hover {
 /*float: left;*/
 /*margin-left: 40px;*/
 /*}*/
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     .timeline-panel-container-inverted .timeline-panel {
         float: left;
         margin-left: 40px;
@@ -251,7 +267,7 @@ a:hover {
 /*left: -14px;*/
 /*right: auto;*/
 /*}*/
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     .timeline-panel-container-inverted .timeline-panel:after {
         border-left-width: 0;
         border-right-width: 14px;
@@ -278,25 +294,28 @@ a:hover {
     color: #333333;
 }
 .education-block {
-    width: 80%;
-    margin: 0 auto 20px auto;
+    width: 95%;
+    margin: 0 auto 30px auto;
     text-align: center;
     padding: 30px;
     /*background-color: #ddd;*/
     border-radius: 10px;
-    border: 2px solid #ccc;
+    /*border: 2px solid #ccc;*/
     /*margin-bottom: 20px;*/
+    -webkit-box-shadow: 7px 7px 16px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 7px 16px -8px rgba(0,0,0,0.75);
+    box-shadow: 7px 7px 16px -8px rgba(0,0,0,0.75);
 }
 .education-block h5 {
-    color: #888;
+    color: #000000;
     font-size: 15px;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 .education-block i {
     font-size: 40px;    color: #000;
 }
 .education-block h3 {
-    color: #333333;
+    color: #373734;
 }
 .education-block h4 {
     margin-bottom: 20px;
@@ -306,6 +325,18 @@ a:hover {
 }
 .abstract_education {
     text-align: left;
+    margin-top: 15px;
+}
+.divider_education {
+    width: 100px;
+    height: 1px;
+    background: #000;
+    margin: 0 auto;
+}
+@media screen and (min-width: 576px) {
+    .education-block {
+        min-height: 400px;
+    }
 }
 
 /*portfolio*/
@@ -373,6 +404,12 @@ a:hover {
     transform: translate(-50%, -50%);*/
     text-align: center;
     margin: auto;
+}
+.divider_project {
+    width: 100px;
+    height: 1px;
+    background: white;
+    margin: 15px auto;
 }
 
 /*recommandations*/
@@ -442,6 +479,7 @@ footer .copyright{
     color: white;
     padding: 5px;
     font-size: 38px;
+    transition: all 0.3s ease-in 0s;
 }
 .link:hover {
     color: #7a26c7;
@@ -450,7 +488,8 @@ footer .copyright{
 /*contact*/
 
 #contact {
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url("../images/acid4.jpg");
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url("../images/acid4.jpg");*/
+    background-image: url("../images/acid4.jpg");
     background-size: 30rem;
 }
 #contact .heading h2 {
@@ -491,7 +530,7 @@ footer .copyright{
     max-width: 540px;
     /*margin-left: auto;*/
     /*margin-right: auto;*/
-    margin: 0 auto;
+    margin: 100px auto;
     color: white;
 }
 #login input {

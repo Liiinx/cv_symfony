@@ -19,6 +19,11 @@
                             <div class="timeline-body">
                                 <div>{{ experience.task|raw }}</div>
                             </div>
+                            {% if experience.link %}
+                                <div class="timeline-footer">
+                                    <a href="{{ experience.link }}" target="_blank"><small><i class="fas fa-globe"></i></small>Site internet</a>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </li>

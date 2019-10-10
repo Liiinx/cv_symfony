@@ -36,6 +36,11 @@ class Experience
      */
     private $task;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,18 @@ class Experience
     public function setTask(?string $task): self
     {
         $this->task = $task;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
 
         return $this;
     }

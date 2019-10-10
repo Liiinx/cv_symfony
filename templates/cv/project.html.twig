@@ -11,13 +11,15 @@
             {% for project in projects %}
                 <div class="col-sm-4 portfolioImage">
                     <a href="{{ project.projectUrl }}" target="_blank">
-                        <img class="img-thumbnail img-project" src="assets/images/{{ project.image }}" alt="travel agency">
+                        <img class="img-thumbnail img-project" src="assets/images/{{ project.image }}" alt="{{ project.name }}">
                         <div class="overlay">
                             <div class="text">
                                 <h3>{{ project.name }}</h3>
                                 {{ project.abstract|raw }}
-                                    <p>{{ project.tech }}<br>
-                                    {{ project.date }}</p>
+                                <div class="divider_project"></div>
+                                <p>{{ project.tech }}</p>
+                                <div class="divider_project"></div>
+                                <p>{{ project.date }}</p>
                             </div>
                         </div>
                     </a>
