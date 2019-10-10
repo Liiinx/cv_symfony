@@ -11,9 +11,11 @@ easy_admin:
           - { property: 'job', label: 'Emploi' }
           - { property: 'date', label: 'Date' }
           - { property: 'task', label: 'Tâche' }
+          - { property: 'link', label: 'Site web' }
       form:
         fields:
           - { property: 'business', label: 'Entreprise' }
           - { property: 'job', label: 'Emploi' }
           - { property: 'date', label: 'Date' }
           - { property: 'task', label: 'Tâche', type: 'text_editor' }
+          - { property: 'link', label: 'Site web' }
