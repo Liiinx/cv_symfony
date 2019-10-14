@@ -8,7 +8,6 @@ easy_admin:
           - { property: 'link', label: 'Lien' }
           - { property: 'icon', label: 'Icône', type: 'raw' }
       form:  # <-- 'form' is applied to both 'new' and 'edit' views
-        help: 'Ajouter une icône Fontawesome, avec la balise HTML i.'
         fields:
           - { property: 'link', label: 'Lien' }
-          - { property: 'icon', label: 'Icône', }
+          - { property: 'icon', label: 'Icône', help: 'Ajouter une icône Fontawesome, avec la balise HTML i.' }

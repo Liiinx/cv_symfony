@@ -60,6 +60,11 @@ class About
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $unsplashBgImage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,6 +146,17 @@ class About
             // if 'updatedAt' is not defined in your entity, use another property
             $this->updatedAt = new \DateTime('now');
         }
+    }
+
+    public function getUnsplashBgImage():  ?string
+    {
+        return $this->unsplashBgImage;
+    }
+    public function setUnsplashBgImage(?string $unsplashBgImage): self
+    {
+        $this->unsplashBgImage = $unsplashBgImage;
+
+        return $this;
     }
 
 }

@@ -12,7 +12,7 @@ class Email extends AbstractController
 
     public function sendMail( Swift_Mailer $mailer, $data)
     {
-        $message = (new \Swift_Message('test'))
+        $message = (new \Swift_Message('Nouveau contact'))
             ->setFrom('ftuffreaud@gmail.com')
             ->setTo('felix.tuffreaud@laposte.net')
             ->setBody($this->renderView('cv/contactMessageTemplate.html.twig',
