@@ -19,4 +19,17 @@ class Validator
         $var = htmlspecialchars($var);
         return $var;
     }
+    public function verifyHttpCode($url)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER	, true);
+//        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        $code_response = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        curl_close($ch);
+        return $code_response;
+    }
+
 }

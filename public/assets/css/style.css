@@ -99,8 +99,13 @@ a:hover {
 #about {
     padding-top: 100px;
     /*background: #000;*/
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/acid4.jpg");
-    background-size: 30rem;
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/acid4.jpg");*/
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/featured/?random,");*/
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 .profile-picture {
     text-align: center;
@@ -120,7 +125,19 @@ a:hover {
     text-transform: inherit;
     font-weight: 400;
 }
-
+#about .creditPhoto {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    color: white;
+}
+#about .creditPhoto a {
+    color: white;
+    font-weight: 600;
+}
+#about .creditPhoto a:hover {
+    color: #7a26c7;
+}
 /*SKILLS*/
 
 #skills {

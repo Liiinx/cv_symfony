@@ -25,7 +25,6 @@ class CvController extends AbstractController
 {
     /**
      * @Route("/", name="cv")
-     * @param AboutRepository $aboutRepository
      * @param SkillRepository $skillRepository
      * @param ExperienceRepository $experienceRepository
      * @param EducationRepository $educationRepository
@@ -36,16 +35,11 @@ class CvController extends AbstractController
      * @param Email $email
      * @return Response
      */
-    public function index(AboutRepository $aboutRepository, SkillRepository $skillRepository,
-                          ExperienceRepository $experienceRepository, EducationRepository $educationRepository,
-                          ProjectRepository $projectRepository, RecommendationRepository $recommendationRepository,
+    public function index(SkillRepository $skillRepository, ExperienceRepository $experienceRepository,
+                          EducationRepository $educationRepository, ProjectRepository $projectRepository,
+                          RecommendationRepository $recommendationRepository,
                           Request $request, Swift_Mailer $mailer, Email $email)
     {
-        $about = $aboutRepository->findOneBy(['id' => '1']);
-        /*$about = $this->getDoctrine()
-            ->getRepository(About::class)
-            ->findOneBy(['id' => '1']);*/
-
 //        test appel fonction
 //        $skills = $this->mySkill($skillRepository);
 
@@ -77,13 +71,48 @@ class CvController extends AbstractController
         }
 
         return $this->render('cv/index.html.twig', [
-            'about' => $about,
+//            'about' => $about,
             'skills' => $skillRepository->findAll(),
             'experiences' => $experienceRepository->findBy([],['id' => 'desc']), // premier paramètre tableau vide = findAll()
             'educations' => $educationRepository->findBy([],['id' => 'desc']),
             'projects' => $projectRepository->findBy([],['id' => 'desc']),
             'recommendations' => $recommendationRepository->findAll(),
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @param AboutRepository $aboutRepository
+     * @param Validator $validator
+     * @return Response
+     */
+    public function aboutMe(AboutRepository $aboutRepository, Validator $validator)
+    {
+        $about = $aboutRepository->findOneBy(['id' => '1']);
+        /*$about = $this->getDoctrine()
+            ->getRepository(About::class)
+            ->findOneBy(['id' => '1']);*/
+
+        $unsplashClientId = 'e6f97882a8602f70c4ced32ebe64c457ceb0dd56c668742fe174a0c308144852';
+        $query = urlencode($about->getUnsplashBgImage());
+        $url = 'https://api.unsplash.com/photos/random/?query=' .$query. '&featured&orientation=landscape&client_id=' . $unsplashClientId;
+        //over 50 requests per hour, $url return 403, so test this url.
+        $codeResponse = $validator->verifyHttpCode($url);
+        dump($codeResponse);
+        if ($codeResponse === 200) {
+            // Use file_get_contents to GET the URL in question.
+            // the True parameter makes this array as associative.
+            $contents = json_decode(file_get_contents($url), TRUE);
+            $unsplashContent['url'] = $contents['urls']['regular'];
+            $unsplashContent['userName'] = $contents['user']['name'];
+            $unsplashContent['link'] = $contents['user']['links']['html'];
+        } else {
+            $unsplashContent = false;
+        }
+
+        return $this->render('cv/about.html.twig', [
+            'about' => $about,
+            'unsplashContent' => $unsplashContent,
         ]);
     }
 
@@ -99,5 +128,4 @@ class CvController extends AbstractController
         ]);
 
     }
-
 }

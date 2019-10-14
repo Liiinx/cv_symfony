@@ -60,6 +60,23 @@ class About
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $unsplashBgImage;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $myBgImage;
+
+    /**
+     * @Vich\UploadableField(mapping="images", fileNameProperty="myBgImage")
+     * @var File
+     */
+    private $myBgImageFile;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,6 +158,42 @@ class About
             // if 'updatedAt' is not defined in your entity, use another property
             $this->updatedAt = new \DateTime('now');
         }
+    }
+
+    public function getUnsplashBgImage():  ?string
+    {
+        return $this->unsplashBgImage;
+    }
+    public function setUnsplashBgImage(?string $unsplashBgImage): self
+    {
+        $this->unsplashBgImage = $unsplashBgImage;
+
+        return $this;
+    }
+
+    public function getMyBgImage(): ?string
+    {
+        return $this->myBgImage;
+    }
+
+    public function setMyBgImage(?string $myBgImage): self
+    {
+        $this->myBgImage = $myBgImage;
+
+        return $this;
+    }
+
+    public function setMyBgImageFile(File $myBgImage = null)
+    {
+        $this->myBgImageFile = $myBgImage;
+        if ($myBgImage) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+    public function getMyBgImageFile()
+    {
+        return $this->myBgImageFile;
     }
 
 }
