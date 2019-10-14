@@ -98,12 +98,11 @@ class CvController extends AbstractController
         $url = 'https://api.unsplash.com/photos/random/?query=' .$query. '&featured&orientation=landscape&client_id=' . $unsplashClientId;
         //over 50 requests per hour, $url return 403, so test this url.
         $codeResponse = $validator->verifyHttpCode($url);
-        dump($codeResponse);
         if ($codeResponse === 200) {
             // Use file_get_contents to GET the URL in question.
             // the True parameter makes this array as associative.
             $contents = json_decode(file_get_contents($url), TRUE);
-            $unsplashContent['url'] = $contents['urls']['regular'];
+            $unsplashContent['url'] = $contents['urls']['small'];
             $unsplashContent['userName'] = $contents['user']['name'];
             $unsplashContent['link'] = $contents['user']['links']['html'];
         } else {

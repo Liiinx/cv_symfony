@@ -98,14 +98,17 @@ a:hover {
 
 #about {
     padding-top: 100px;
-    /*background: #000;*/
     /*background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/acid4.jpg");*/
-    /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/featured/?random,");*/
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+}
+@media screen and (max-width: 769px) {
+    #about {
+        background-size: 700px;
+    }
 }
 .profile-picture {
     text-align: center;
@@ -128,7 +131,7 @@ a:hover {
 #about .creditPhoto {
     position: absolute;
     bottom: 0;
-    right: 20px;
+    left: 20px;
     color: white;
 }
 #about .creditPhoto a {
