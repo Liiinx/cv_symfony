@@ -2,12 +2,15 @@
 <section id="about" class="container-fluid"
          style="background-image:
          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-         {% if unsplashContent == true %}
-            url('{{ unsplashContent.url }}');">
-         {% else %}
-            url('https://source.unsplash.com/featured/?{{ about.unsplashBgImage }}');">
-{#            url('https://liiinx.com/assets/images/acid4.jpg');">#}
-         {% endif %}
+                 {% if about.myBgImage != null %}
+                       url('assets/images/{{ about.myBgImage }}');">
+                 {% else %}
+                      {% if unsplashContent == true %}
+                            url('{{ unsplashContent.url }}');">
+                      {% else %}
+                            url('https://source.unsplash.com/featured/?{{ about.unsplashBgImage }}');">
+                      {% endif %}
+                 {% endif %}
     <div class="col-xs-8 col-md-4 profile-picture">
         <img class="rounded-circle img-profile" src="assets/images/{{ about.image }}" alt="felix">
     </div>
@@ -17,11 +20,13 @@
         <a target="_blank" class="button1" href="assets/docs/{{ about.cv }}">Télécharger mon cv</a>
     </div>
     <div class="creditPhoto">
-        {% if unsplashContent == true %}
+        {% if about.myBgImage == null %}
+            {% if unsplashContent == true %}
             <p>Photo by
                 <a href="{{ unsplashContent.link }}" target="_blank">{{ unsplashContent.userName }}</a> on
                 <a href="https://unsplash.com/" target="_blank">Unsplash</a>. Thanks !
             </p>
+            {% endif %}
         {% endif %}
     </div>
 </section>

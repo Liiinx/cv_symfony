@@ -11,14 +11,16 @@ easy_admin:
           - { property: 'image', label: 'Votre photo', type: 'image', base_path: '%app.path.images%'  }
           - { property: 'job', label: 'Votre poste actuel' }
           - { property: 'cv', template: 'cv.html.twig', base_path: '%app.path.cv_doc%' }
-          - { property: 'unsplashBgImage', label: 'Image d''arrière plan unsplash' }
+          - { property: 'unsplashBgImage', label: 'Catégorie(s) d''image unsplash' }
+          - { property: 'myBgImage', label: 'Votre photo d''arrière plan', type: 'image', base_path: '%app.path.images%'  }
       form:  # <-- 'form' is applied to both 'new' and 'edit' views
         fields:
           - { property: 'name', label: 'Nom et prénom' }
           - { property: 'job', label: 'Votre poste actuel' }
           #                    - { property: 'image', label: 'Votre photo', type: 'file_upload', type_options: { upload_dir: 'public/assets/images/', upload_filename: '[slug].[extension]' } }
-          - { property: 'imageFile', label: 'Votre photo', type: 'vich_image', type_options: { allow_delete: false } }
+          - { property: 'imageFile', label: 'Votre photo', type: 'vich_image', type_options: { allow_delete: true } }
           - { property: 'cvFile', label: 'Votre cv', type: 'vich_file', type_options: { allow_delete: false } }
           - { property: 'unsplashBgImage',
-              label: 'Unsplash image',
-              help: 'Choisir une ou des catégories d''images <a href="https://unsplash.com/" target="_blank"> unslpash</a> ex: beach france<br/>Mettre une virgule entre les valeurs.' }
+              label: 'Catégorie(s) d''image unsplash',
+              help: 'Choisir une ou des catégories d''images <a href="https://unsplash.com/" target="_blank"> unslpash</a> ex: beach,france<br/>Mettre une virgule entre les valeurs.' }
+          - { property: 'myBgImageFile', label: 'Votre photo d''arrière plan', type: 'vich_image', type_options: { allow_delete: true } }
