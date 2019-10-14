@@ -102,7 +102,7 @@ class CvController extends AbstractController
             // Use file_get_contents to GET the URL in question.
             // the True parameter makes this array as associative.
             $contents = json_decode(file_get_contents($url), TRUE);
-            $unsplashContent['url'] = $contents['urls']['small'];
+            $unsplashContent['url'] = $contents['urls']['regular'];
             $unsplashContent['userName'] = $contents['user']['name'];
             $unsplashContent['link'] = $contents['user']['links']['html'];
         } else {
