@@ -105,11 +105,6 @@ a:hover {
     background-repeat: no-repeat;
     position: relative;
 }
-@media screen and (max-width: 769px) {
-    #about {
-        background-size: 700px;
-    }
-}
 .profile-picture {
     text-align: center;
     margin: 0 auto;
