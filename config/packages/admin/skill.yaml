@@ -9,10 +9,13 @@ easy_admin:
           - { property: 'name', label: 'Nom' }
           - { property: 'value', label: 'Valeur' }
           - { property: 'color', label: 'Couleur' }
+          - { property: 'icon', label: 'Icône', type: 'raw', css_class: fa-2x }
+
       form:
         fields:
           - { property: 'name', label: 'Nom' }
           - { property: 'value', label: 'Valeur' }
           - { property: 'color', label: 'Couleur', type: 'color' }
+          - { property: 'icon', label: 'Icône', help: 'Ajouter une icône Fontawesome, avec la balise HTML <i/>.' }
 
 

@@ -6,7 +6,7 @@ easy_admin:
       list:
         fields:
           - { property: 'link', label: 'Lien' }
-          - { property: 'icon', label: 'Icône', type: 'raw' }
+          - { property: 'icon', label: 'Icône', type: 'raw', css_class: fa-2x }
       form:  # <-- 'form' is applied to both 'new' and 'edit' views
         fields:
           - { property: 'link', label: 'Lien' }

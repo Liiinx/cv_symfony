@@ -14,7 +14,7 @@
                             <div class="progress-bar progress-bar-striped progress-bar-animated"
                                  role="progressbar" aria-valuenow="{{ skill.value }}" aria-valuemin="0" aria-valuemax="100"
                                  style="width: {{ skill.value }}%; background-color: {{ skill.color }};">
-                                {{ skill.name }}
+                                {{ skill.name }}{{ skill.icon|raw }}
                             </div>
                         </div>
                     {% endif %}
@@ -28,7 +28,7 @@
                             <div class="progress-bar progress-bar-striped progress-bar-animated"
                                  role="progressbar" aria-valuenow="{{ skill.value }}" aria-valuemin="0" aria-valuemax="100"
                                  style="width: {{ skill.value }}%; background-color: {{ skill.color }};">
-                                {{ skill.name }}
+                                {{ skill.name }}{{ skill.icon|raw }}
                             </div>
                         </div>
                     {% endif %}
