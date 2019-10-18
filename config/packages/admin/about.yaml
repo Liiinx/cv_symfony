@@ -3,7 +3,7 @@ easy_admin:
     About:
       class: App\Entity\About
       label: 'Moi'
-      disabled_actions: ['new', 'search']
+      disabled_actions: ['new', 'search', 'delete']
       list:
         fields:
           - { property: 'name', label: 'Nom et prénom' }

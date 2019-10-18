@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\About;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\AboutRepository;
@@ -10,6 +11,7 @@ use App\Repository\ExperienceRepository;
 use App\Repository\FooterRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\RecommendationRepository;
+use App\Repository\SectionAttributeRepository;
 use App\Repository\SkillRepository;
 use App\Service\Email;
 use App\Service\Validator;
@@ -25,6 +27,7 @@ class CvController extends AbstractController
 {
     /**
      * @Route("/", name="cv")
+     * @param AboutRepository $aboutRepository
      * @param SkillRepository $skillRepository
      * @param ExperienceRepository $experienceRepository
      * @param EducationRepository $educationRepository
@@ -33,15 +36,22 @@ class CvController extends AbstractController
      * @param Request $request
      * @param Swift_Mailer $mailer
      * @param Email $email
+     * @param Validator $validator
+     * @param SectionAttributeRepository $sectionAttributeRepository
      * @return Response
      */
-    public function index(SkillRepository $skillRepository, ExperienceRepository $experienceRepository,
+    public function index(AboutRepository $aboutRepository, SkillRepository $skillRepository, ExperienceRepository $experienceRepository,
                           EducationRepository $educationRepository, ProjectRepository $projectRepository,
                           RecommendationRepository $recommendationRepository,
-                          Request $request, Swift_Mailer $mailer, Email $email)
+                          Request $request, Swift_Mailer $mailer, Email $email, Validator $validator,
+                            SectionAttributeRepository $sectionAttributeRepository)
     {
-//        test appel fonction
-//        $skills = $this->mySkill($skillRepository);
+        $about = $aboutRepository->findOneBy(['id' => '1']);
+        /*$about = $this->getDoctrine()
+            ->getRepository(About::class)
+            ->findOneBy(['id' => '1']);*/
+//       appel fonction unsplash
+        $unsplashContent = $this->unsplashImage($validator, $about);
 
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -71,27 +81,25 @@ class CvController extends AbstractController
         }
 
         return $this->render('cv/index.html.twig', [
-//            'about' => $about,
+            'about' => $about,
             'skills' => $skillRepository->findAll(),
             'experiences' => $experienceRepository->findBy([],['id' => 'desc']), // premier paramètre tableau vide = findAll()
             'educations' => $educationRepository->findBy([],['id' => 'desc']),
             'projects' => $projectRepository->findBy([],['id' => 'desc']),
             'recommendations' => $recommendationRepository->findAll(),
             'form' => $form->createView(),
+            'unsplashContent' => $unsplashContent,
+            'sectionAttribute' => $sectionAttributeRepository->findOneBy(['id' => '1']),
         ]);
     }
 
     /**
-     * @param AboutRepository $aboutRepository
      * @param Validator $validator
-     * @return Response
+     * @param $about
+     * @return mixed
      */
-    public function aboutMe(AboutRepository $aboutRepository, Validator $validator)
+    public function unsplashImage(Validator $validator, About $about)
     {
-        $about = $aboutRepository->findOneBy(['id' => '1']);
-        /*$about = $this->getDoctrine()
-            ->getRepository(About::class)
-            ->findOneBy(['id' => '1']);*/
 
         $unsplashClientId = 'e6f97882a8602f70c4ced32ebe64c457ceb0dd56c668742fe174a0c308144852';
         $query = urlencode($about->getUnsplashBgImage());
@@ -108,22 +116,23 @@ class CvController extends AbstractController
         } else {
             $unsplashContent = false;
         }
-
-        return $this->render('cv/about.html.twig', [
-            'about' => $about,
-            'unsplashContent' => $unsplashContent,
-        ]);
+        return $unsplashContent;
     }
 
     /**
      * @param FooterRepository $footerRepository
+     * @param AboutRepository $aboutRepository
      * @return Response
      */
-    public function myFooter(FooterRepository $footerRepository)
+    public function myFooter(FooterRepository $footerRepository, AboutRepository $aboutRepository)
     {
+        $about = $aboutRepository->findOneBy(['id' => '1']);
+        $name = $about->getName();
+
         $footerLinks = $footerRepository->findAll();
         return $this->render('footer.html.twig', [
            'footerLinks' => $footerLinks,
+            'name' => $name,
         ]);
 
     }

@@ -13,22 +13,22 @@
                 <a class="nav-link" href="{{ path('cv') }}#about">Moi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('cv') }}#skills">Compétences</a>
+                <a class="nav-link" href="{{ path('cv') }}#skills">{{ sectionAttribute.skillTitle| split(' ')[0] }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('cv') }}#experience">Expérience</a>
+                <a class="nav-link" href="{{ path('cv') }}#experience">{{ sectionAttribute.experienceTitle| split(' ')[0] }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('cv') }}#education">Formation</a>
+                <a class="nav-link" href="{{ path('cv') }}#education">{{ sectionAttribute.educationTitle| split(' ')[0] }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('cv') }}#portfolio">Portfolio</a>
+                <a class="nav-link" href="{{ path('cv') }}#portfolio">{{ sectionAttribute.projectTitle| split(' ')[0] }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('cv') }}#recommandations">Recommandations</a>
+                <a class="nav-link" href="{{ path('cv') }}#recommandations">{{ sectionAttribute.recommendationTitle| split(' ')[0] }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('cv') }}#contact">Contact</a>
+                <a class="nav-link" href="{{ path('cv') }}#contact">{{ sectionAttribute.contactTitle| split(' ')[0] }}</a>
             </li>
             <li class="nav-item">
                 {% if app.user %}

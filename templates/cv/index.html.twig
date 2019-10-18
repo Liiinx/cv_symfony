@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{#{% block title %}Hello CvController!{% endblock %}#}
+{% block title %}{{ about.name }}{% endblock %}
 
 {% block content %}
 
-{#    {% include 'cv/about.html.twig' %}#}
-    {{ render(controller('App\\Controller\\CvController::aboutMe')) }}
+    {% include 'cv/about.html.twig' %}
+{#    {{ render(controller('App\\Controller\\CvController::aboutMe')) }}#}
     {% include 'cv/skill.html.twig' %}
     {% include 'cv/experience.html.twig' %}
     {% include 'cv/education.html.twig' %}

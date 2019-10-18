@@ -157,15 +157,15 @@ a:hover {
 }
 #skills i {
     font-size: 25px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 /*experience*/
 
 #experience {
     /*background: #333333;*/
-    /*background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url("../images/acid5.jpg");*/
-    background-image: url("../images/acid5.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/acid5.jpg");
+    /*background-image: url("../images/acid5.jpg");*/
     background-size: 30rem;
 }
 #experience .heading h2 {
@@ -364,7 +364,7 @@ a:hover {
 /*portfolio*/
 
 #portfolio {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/acid5.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/acid5.jpg");
     background-size: 30rem;
 }
 .row-portfolio {
