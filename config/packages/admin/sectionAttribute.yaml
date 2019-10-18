@@ -1,0 +1,24 @@
+easy_admin:
+  entities:
+    SectionAttribute:
+      class: App\Entity\SectionAttribute
+      label: 'modif des sections'
+      disabled_actions: ['new', 'search', 'delete']
+      list:
+        fields:
+          - { property: 'skillTitle', label: 'Titre compétences' }
+          - { property: 'experienceTitle', label: 'Titre expériences' }
+          - { property: 'educationTitle', label: 'Titre formations' }
+          - { property: 'projectTitle', label: 'Titre projets' }
+          - { property: 'recommendationTitle', label: 'Titre recommandations' }
+          - { property: 'contactTitle', label: 'Titre contact' }
+      form:
+        fields:
+          - { property: 'skillTitle', label: 'Titre compétences' }
+          - { property: 'experienceTitle', label: 'Titre expériences' }
+          - { property: 'educationTitle', label: 'Titre formations' }
+          - { property: 'projectTitle', label: 'Titre projets' }
+          - { property: 'recommendationTitle', label: 'Titre recommandations' }
+          - { property: 'contactTitle', label: 'Titre contact' }
+
+

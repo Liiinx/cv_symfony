@@ -151,14 +151,21 @@ a:hover {
 #skills .progress-bar {
     /*background: #000;*/
 }
-
+#skills .progress-bar {
+    flex-direction: row;
+    align-items: center;
+}
+#skills i {
+    font-size: 25px;
+    margin-left: 10px;
+}
 
 /*experience*/
 
 #experience {
     /*background: #333333;*/
-    /*background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url("../images/acid5.jpg");*/
-    background-image: url("../images/acid5.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/acid5.jpg");
+    /*background-image: url("../images/acid5.jpg");*/
     background-size: 30rem;
 }
 #experience .heading h2 {
@@ -357,7 +364,7 @@ a:hover {
 /*portfolio*/
 
 #portfolio {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/acid5.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/acid5.jpg");
     background-size: 30rem;
 }
 .row-portfolio {
@@ -469,23 +476,6 @@ footer {
     padding: 15px 0 35px;
     border-top: 1px solid #fff;
 }
-#toTop {
-    /*display: none; !* Hidden by default *!*/
-    position: fixed;
-    bottom: 30px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99;
-    cursor: pointer; /* Add a mouse pointer on hover */
-}
-footer .chevron{
-    font-size:  25px;
-    margin: 20px;
-    color: #333333;
-    height: 30px;
-}
-footer .chevron:hover{
-    font-size:  27px;
-}
 footer .copyright{
     color: #fff;
     font-weight: normal;
@@ -500,11 +490,45 @@ footer .copyright{
     color: #7a26c7;
 }
 
+/* back to top */
+
+#toTop {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 30px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99;
+    cursor: pointer; /* Add a mouse pointer on hover */
+}
+footer .chevron{
+    font-size: 25px;
+    color: #FFFFFF;
+    background-color: #333333;
+    padding: 10px;
+    line-height: 25px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in 0s;
+    box-shadow: 2px 2px 6px black;
+}
+@keyframes animToTop {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+footer .chevron:hover{
+    background-color: #FFFFFF;
+    color: #333333;
+    animation: animToTop 1s alternate infinite; /* On utilise "animToTop" définie plus tôt */
+}
+
 /*contact*/
 
 #contact {
-    /*background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url("../images/acid4.jpg");*/
-    background-image: url("../images/acid4.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/acid4.jpg");
+    /*background-image: url("../images/acid4.jpg");*/
     background-size: 30rem;
 }
 #contact .heading h2 {
