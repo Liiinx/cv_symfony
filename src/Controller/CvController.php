@@ -134,6 +134,13 @@ class CvController extends AbstractController
            'footerLinks' => $footerLinks,
             'name' => $name,
         ]);
+    }
+
+    public function myNavbar(SectionAttributeRepository $sectionAttributeRepository)
+    {
+        return $this->render('nav.html.twig', [
+            'sectionAttribute' => $sectionAttributeRepository->findOneBy(['id' => '1']),
+        ]);
 
     }
 }

@@ -19,7 +19,8 @@
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="60">
 
-        {% include 'nav.html.twig' %}
+{#        {% include 'nav.html.twig' %}#}
+    {{ render(controller('App\\Controller\\CvController::myNavbar')) }}
         {% block content %}{% endblock %}
 {#        {% include 'footer.html.twig' %}#}
 {#        test appel function dans vue#}
