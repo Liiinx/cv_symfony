@@ -60,11 +60,9 @@ class CvController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
-
             // captcha google
             //$siteKey = '6Lc6TJUUAAAAAFs4y5MYlJezrHdyS02JOQMCsCSF'; // votre clé publique
-            $secret = 'secret key'; // votre clé privée
-
+            $secret = '6Lc6TJUUAAAAABA6OMvpmBb7Z6BCohyCtqE1wHqv'; // votre clé privée
             $reCaptcha = new ReCaptcha($secret);
             $resp = $reCaptcha->verify($request->request->get('g-recaptcha-response'));
             if ($resp->isSuccess()) {
@@ -75,8 +73,7 @@ class CvController extends AbstractController
             } else {
                 $array["captchaError"] = "merci de valider le captcha";
                 $array["isSuccess"] = false;
-            return $this->json($array);
-
+                return $this->json($array);
             }
         }
 
