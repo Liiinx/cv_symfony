@@ -52,6 +52,7 @@ section .heading h2 {
     display: block;
     transition: all 0.3s ease-in 0s;
     background: rgba(0,0,0, 0.4);
+    width: -moz-fit-content;
     width: fit-content;
 }
 .button1:hover {
@@ -123,10 +124,6 @@ a:hover {
     color: #fff;
     text-transform: inherit;
     font-weight: 400;
-    display: inline-block;
-}
-#about .heading .typewrite {
-    padding-left: 12px;
 }
 #about .creditPhoto {
     position: absolute;
@@ -600,4 +597,24 @@ footer .chevron:hover{
 }
 #login .logout:hover {
     color: rgba(255, 255, 255, 0.8);
+}
+
+/*  informations   */
+
+#mapid {
+    height: 300px;
+    width: 100%;
+    z-index: 1;
+}
+#informations .sub_title {
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 20px;
+}
+#informations i {
+    padding-right: 10px;
+}
+#informations .text_info {
+    padding-left: 20px;
+    display: block;
 }

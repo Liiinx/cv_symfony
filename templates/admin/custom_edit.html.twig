@@ -1,0 +1,7 @@
+{#extend la vue edit (formulaire pour l'admin)#}
+{% extends '@!EasyAdmin/default/edit.html.twig' %}
+{% block body_javascript %}
+{#    {{ dump() }}#}
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.17.1"></script>
+    <script type="text/javascript" src="/assets/js/algoliaPlaces.js"></script>
+{% endblock %}
