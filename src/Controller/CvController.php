@@ -51,6 +51,7 @@ class CvController extends AbstractController
             ->getRepository(About::class)
             ->findOneBy(['id' => '1']);*/
 //       appel fonction unsplash
+
         $unsplashContent = $this->unsplashImage($validator, $about);
 
         $contact = new Contact();

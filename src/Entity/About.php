@@ -91,6 +91,11 @@ class About
      */
     private $lng;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
 
     public function getId(): ?int
     {
@@ -243,6 +248,18 @@ class About
     public function setLng(?float $lng): self
     {
         $this->lng = $lng;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }

@@ -3,7 +3,7 @@
 <section id="informations">
     <div class="red-divider"></div>
     <div class="heading">
-        <h2>Informations</h2>
+        <h2>{{ sectionAttribute.infoTitle }}</h2>
     </div>
     <div class="container">
         <div class="row">
@@ -16,8 +16,8 @@
                 {% for addressPart in about.address|split(',') %}
                     <span class="text_info">{{ addressPart }}</span>
                 {% endfor %}
-                <p class="sub_title"><i class="far fa-envelope"></i>Mail :</p>
-                <p class="text_info">ftuffreaud@gmail.com</p>
+                <p class="sub_title"><i class="far fa-envelope"></i>Email :</p>
+                <p class="text_info">{{ about.email }}</p>
             </div>
         </div>
 
