@@ -50,8 +50,13 @@ class CvController extends AbstractController
         /*$about = $this->getDoctrine()
             ->getRepository(About::class)
             ->findOneBy(['id' => '1']);*/
-//       appel fonction unsplash
 
+//        modifier les données géographiques si adressse null
+        if ($about->getAddress() == null) {
+            $about = $this->newLatLng($about);
+        }
+
+//       appel fonction unsplash
         $unsplashContent = $this->unsplashImage($validator, $about);
 
         $contact = new Contact();
@@ -139,6 +144,13 @@ class CvController extends AbstractController
         return $this->render('nav.html.twig', [
             'sectionAttribute' => $sectionAttributeRepository->findOneBy(['id' => '1']),
         ]);
+    }
 
+    public function newLatLng(About $about)
+    {
+        $about->setAddress('Paris');
+        $about->setLat(48.8534);
+        $about->setLng(2.3488);
+        return $about;
     }
 }
