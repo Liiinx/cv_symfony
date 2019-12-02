@@ -46,6 +46,11 @@ class SectionAttribute
      */
     private $contactTitle;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $infoTitle;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class SectionAttribute
     public function setContactTitle(string $contactTitle): self
     {
         $this->contactTitle = $contactTitle;
+
+        return $this;
+    }
+
+    public function getInfoTitle(): ?string
+    {
+        return $this->infoTitle;
+    }
+
+    public function setInfoTitle(string $infoTitle): self
+    {
+        $this->infoTitle = $infoTitle;
 
         return $this;
     }
