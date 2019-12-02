@@ -50,6 +50,12 @@ class CvController extends AbstractController
         /*$about = $this->getDoctrine()
             ->getRepository(About::class)
             ->findOneBy(['id' => '1']);*/
+
+//        modifier les données géographiques si adressse null
+        if ($about->getAddress() == null) {
+            $about = $this->newLatLng($about);
+        }
+
 //       appel fonction unsplash
         $unsplashContent = $this->unsplashImage($validator, $about);
 
@@ -60,11 +66,9 @@ class CvController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
-
             // captcha google
             //$siteKey = '6Lc6TJUUAAAAAFs4y5MYlJezrHdyS02JOQMCsCSF'; // votre clé publique
-            $secret = 'secret key'; // votre clé privée
-
+            $secret = '6Lc6TJUUAAAAABA6OMvpmBb7Z6BCohyCtqE1wHqv'; // votre clé privée
             $reCaptcha = new ReCaptcha($secret);
             $resp = $reCaptcha->verify($request->request->get('g-recaptcha-response'));
             if ($resp->isSuccess()) {
@@ -75,8 +79,7 @@ class CvController extends AbstractController
             } else {
                 $array["captchaError"] = "merci de valider le captcha";
                 $array["isSuccess"] = false;
-            return $this->json($array);
-
+                return $this->json($array);
             }
         }
 
@@ -141,6 +144,13 @@ class CvController extends AbstractController
         return $this->render('nav.html.twig', [
             'sectionAttribute' => $sectionAttributeRepository->findOneBy(['id' => '1']),
         ]);
+    }
 
+    public function newLatLng(About $about)
+    {
+        $about->setAddress('Paris');
+        $about->setLat(48.8534);
+        $about->setLng(2.3488);
+        return $about;
     }
 }

@@ -31,6 +31,9 @@
                 <a class="nav-link" href="{{ path('cv') }}#contact">{{ sectionAttribute.contactTitle| split(' ')[0] }}</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ path('cv') }}#informations">{{ sectionAttribute.infoTitle| split(' ')[0] }}</a>
+            </li>
+            <li class="nav-item">
                 {% if app.user %}
                 <a title="Déconnexion" class="nav-link" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i></a>
                 {% else %}

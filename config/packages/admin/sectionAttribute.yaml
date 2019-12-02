@@ -12,6 +12,7 @@ easy_admin:
           - { property: 'projectTitle', label: 'Titre projets' }
           - { property: 'recommendationTitle', label: 'Titre recommandations' }
           - { property: 'contactTitle', label: 'Titre contact' }
+          - { property: 'infoTitle', label: 'Titre information' }
       form:
         fields:
           - { property: 'skillTitle', label: 'Titre compétences' }
@@ -20,5 +21,6 @@ easy_admin:
           - { property: 'projectTitle', label: 'Titre projets' }
           - { property: 'recommendationTitle', label: 'Titre recommandations' }
           - { property: 'contactTitle', label: 'Titre contact' }
+          - { property: 'infoTitle', label: 'Titre information' }
 
 

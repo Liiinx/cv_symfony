@@ -17,6 +17,10 @@
     <div class="heading">
         <h1>{{ about.name }}</h1>
         <h2>{{ about.job }}</h2>
+        <h2 class="typewrite" data-period="2000" data-type='[{% for key, skill in skills %}{% if key > 0 %}, {% endif %}"{{ skill.name }}"{% endfor %}]'>
+{#        "{{ about.job }}", "I am Creative.", "I Love Design.", "I Love to Develop." ]'>#}
+            <span class="wrap"></span>
+        </h2>
         <a target="_blank" class="button1" href="assets/docs/{{ about.cv }}">Télécharger mon cv</a>
     </div>
     <div class="creditPhoto">

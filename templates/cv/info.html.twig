@@ -1,0 +1,25 @@
+<!--info-->
+
+<section id="informations">
+    <div class="red-divider"></div>
+    <div class="heading">
+        <h2>{{ sectionAttribute.infoTitle }}</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div id="mapid" data-lat="{{ about.lat }}" data-lng="{{ about.lng }}" data-address="Vous pouvez me trouvez ici :</br>{{ about.address }}"></div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <p class="sub_title"><i class="fas fa-map-marked-alt"></i>Adresse :</p>
+{#                {{ about.address|split(',') }}#}
+                {% for addressPart in about.address|split(',') %}
+                    <span class="text_info">{{ addressPart }}</span>
+                {% endfor %}
+                <p class="sub_title"><i class="far fa-envelope"></i>Email :</p>
+                <p class="text_info">{{ about.email }}</p>
+            </div>
+        </div>
+
+    </div>
+</section>
