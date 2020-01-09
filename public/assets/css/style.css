@@ -618,3 +618,21 @@ footer .chevron:hover{
     padding-left: 20px;
     display: block;
 }
+
+/*  progress bar   */
+
+/* The progress container (background) */
+.scroll-progress-container {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 4px;
+    background: #FFFFFF;
+}
+
+/* The progress bar (scroll indicator) */
+.scroll-progress-bar {
+    height: 3px;
+    background: #000000;
+    width: 0;
+}
