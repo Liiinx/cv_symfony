@@ -17,7 +17,6 @@ use App\Service\Email;
 use App\Service\Validator;
 use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -66,21 +65,7 @@ class CvController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
-            // captcha google
-            //$siteKey = '6Lc6TJUUAAAAAFs4y5MYlJezrHdyS02JOQMCsCSF'; // votre clé publique
-            $secret = '6Lc6TJUUAAAAABA6OMvpmBb7Z6BCohyCtqE1wHqv'; // votre clé privée
-            $reCaptcha = new ReCaptcha($secret);
-            $resp = $reCaptcha->verify($request->request->get('g-recaptcha-response'));
-            if ($resp->isSuccess()) {
-                // Verified!
-                $email->sendMail($mailer, $data);
-                $array["isSuccess"] = true;
-                return $this->json($array);
-            } else {
-                $array["captchaError"] = "merci de valider le captcha";
-                $array["isSuccess"] = false;
-                return $this->json($array);
-            }
+            $this->contactFormMail($data, $request, $email, $mailer);
         }
 
         return $this->render('cv/index.html.twig', [
@@ -94,6 +79,32 @@ class CvController extends AbstractController
             'unsplashContent' => $unsplashContent,
             'sectionAttribute' => $sectionAttributeRepository->findOneBy(['id' => '1']),
         ]);
+    }
+
+    /**
+     * @param $data
+     * @param Request $request
+     * @param Email $email
+     * @param Swift_Mailer $mailer
+     * @return Response
+     */
+    public function contactFormMail($data, Request $request, Email $email, Swift_Mailer $mailer) : Response
+    {
+        // captcha google
+        //$siteKey = '6Lc6TJUUAAAAAFs4y5MYlJezrHdyS02JOQMCsCSF'; // votre clé publique
+        $secret = '6Lc6TJUUAAAAABA6OMvpmBb7Z6BCohyCtqE1wHqv'; // votre clé privée
+        $reCaptcha = new ReCaptcha($secret);
+        $resp = $reCaptcha->verify($request->request->get('g-recaptcha-response'));
+        if ($resp->isSuccess()) {
+            // Verified!
+            $email->sendMail($mailer, $data);
+            $array["isSuccess"] = true;
+            return $this->json($array, 200);
+        } else {
+            $array["captchaError"] = "merci de valider le captcha";
+            $array["isSuccess"] = false;
+            return $this->json($array);
+        }
     }
 
     /**
