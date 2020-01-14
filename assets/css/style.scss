@@ -1,5 +1,8 @@
 /*GENERAL*/
 
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
 html {
     scroll-behavior: smooth;
 }
@@ -166,7 +169,7 @@ a:hover {
 
 #experience {
     /*background: #333333;*/
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/acid4.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../public/assets/images/acid4.jpg");
     /*background-image: url("../images/acid5.jpg");*/
     background-size: 30rem;
     background-attachment: fixed;
@@ -378,7 +381,7 @@ a:hover {
 /*portfolio*/
 
 #portfolio {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/acid5.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../public/assets/images/acid5.jpg");
     background-size: 30rem;
     background-attachment: fixed;
 }
@@ -543,7 +546,7 @@ footer .chevron:hover{
 /*contact*/
 
 #contact {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/acid4.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../public/assets/images/acid4.jpg");
     /*background-image: url("../images/acid4.jpg");*/
     background-size: 30rem;
     background-attachment: fixed;
@@ -579,7 +582,7 @@ footer .chevron:hover{
 /*login*/
 
 #login {
-    background-image: url("../images/acid4.jpg");
+    background-image: url("../../public/assets/images/acid4.jpg");
     background-size: 30rem;
 }
 #login form {
