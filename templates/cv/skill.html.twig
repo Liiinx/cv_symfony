@@ -2,15 +2,20 @@
 <section id="skills">
     <div class="red-divider"></div>
     <div class="heading">
-        <h2>{{ sectionAttribute.skillTitle }}</h2>
+        <h2 data-aos="zoom-in">{{ sectionAttribute.skillTitle }}</h2>
     </div>
     <div class="container">
         <div class="row">
 
             <div class="col-md-6 col-xs-12">
+                {% set delay = 50 %}
                 {% for key, skill in skills %}
                     {% if key is even %}
-                        <div class="progress">
+                        <div data-aos="fade-up"
+                             data-aos-easing="ease-in-out"
+                             data-aos-delay="{{ delay }}"
+                             data-aos-once="true"
+                             class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated"
                                  role="progressbar" aria-valuenow="{{ skill.value }}" aria-valuemin="0" aria-valuemax="100"
                                  style="width: {{ skill.value }}%; background-color: {{ skill.color }};">
@@ -18,13 +23,18 @@
                             </div>
                         </div>
                     {% endif %}
+                    {% set delay = delay + 50 %}
                 {% endfor %}
             </div>
 
             <div class="col-md-6 col-xs-12">
                 {% for key, skill in skills %}
                     {% if key is odd %}
-                        <div class="progress">
+                        <div data-aos="fade-up"
+                             data-aos-easing="ease-in-out"
+                             data-aos-delay="{{ delay }}"
+                             data-aos-once="true"
+                             class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated"
                                  role="progressbar" aria-valuenow="{{ skill.value }}" aria-valuemin="0" aria-valuemax="100"
                                  style="width: {{ skill.value }}%; background-color: {{ skill.color }};">
@@ -32,6 +42,7 @@
                             </div>
                         </div>
                     {% endif %}
+                    {% set delay = delay + 50 %}
                 {% endfor %}
             </div>
 
