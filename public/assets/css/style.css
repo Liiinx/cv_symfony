@@ -1,20 +1,5 @@
 /*GENERAL*/
 
-// variables
-$backGroundImage: url("../../public/assets/images/art_deco.jpg");
-$backGroundSize: 2rem;
-$backGroundAttachment: fixed;
-
-$backGroundDegrade : linear-gradient(135deg,rgba(255,251,153,0.3)0%,rgba(255,208,208,0.5)28%,rgba(28,171,204,0.2)100%);
-$overImageDegrade : linear-gradient(135deg,rgba(255,251,153,0.8)0%,rgba(255,208,208,0.9)28%,rgba(28,171,204,1)100%);
-
-// colors
-$black: #000000;
-$grey: #333333;
-
-// the ~ allows you to reference things in node_modules
-@import "~bootstrap/scss/bootstrap";
-
 html {
     scroll-behavior: smooth;
 }
@@ -78,8 +63,8 @@ section .heading h2 {
 .button2 {
     font-weight: bold;
     text-transform: uppercase;
-    color: $black;
-    border: 1px solid $black;
+    color: #000000;
+    border: 1px solid #000000;
     margin: 20px auto;
     padding: 18px 50px;
     border-radius: 3px;
@@ -90,7 +75,7 @@ section .heading h2 {
     width: fit-content;
 }
 .button2:hover {
-    background: $black;
+    background: #000000;
     color: #FFFFFF;
     text-decoration: none;
 }
@@ -174,7 +159,7 @@ a:hover {
 /*SKILLS*/
 
 #skills {
-    //background-image: $backGroundDegrade;
+    /*background: linear-gradient(135deg,rgba(255,251,153,0.3)0%,rgba(255,208,208,0.5)28%,rgba(28,171,204,0.2)100%);*/
     background: white;
 }
 #skills .heading h2 {
@@ -200,18 +185,18 @@ a:hover {
 
 #experience {
     /*background: #333333;*/
-    //background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url("../../public/assets/images/art_deco.jpg");
-    background-image: $backGroundImage;
-    background-size: $backGroundSize;
-    background-attachment: $backGroundAttachment;
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url("../../public/assets/images/art_deco.jpg");*/
+    background-image: url("../images/art_deco.jpg");
+    background-size: 2rem;
+    background-attachment: fixed;
 
-    //background-color: black;
-    //background-image:
-    //        linear-gradient(to bottom right, white 1px, transparent 1px),
-    //        linear-gradient(to bottom, white 1px, transparent 1px);
-    //background-size: 200px 200px;
-    //background-position: center;
-    //background-attachment: fixed;
+/*    background-color: black;
+    background-image:
+            linear-gradient(to bottom right, white 1px, transparent 1px),
+           linear-gradient(to bottom, white 1px, transparent 1px);
+    background-size: 200px 200px;
+    background-position: center;
+    background-attachment: fixed;*/
 }
 #experience .heading h2 {
     color: black;
@@ -354,21 +339,21 @@ a:hover {
 /*education*/
 
 #education {
-    background-image: $backGroundDegrade;
+    background: linear-gradient(135deg,rgba(255,251,153,0.3)0%,rgba(255,208,208,0.5)28%,rgba(28,171,204,0.2)100%);
 }
 #education .heading h2 {
     color: #333333;
 }
-.education-block {
+/*.education-block {
     position: relative;
     width: 95%;
     margin: 0 auto 30px auto;
     text-align: center;
     padding: 30px;
-    /*background-color: #ddd;*/
+    !*background-color: #ddd;*!
     border-radius: 10px;
-    /*border: 2px solid #ccc;*/
-    /*margin-bottom: 20px;*/
+    !*border: 2px solid #ccc;*!
+    !*margin-bottom: 20px;*!
     -webkit-box-shadow: 7px 7px 16px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: 7px 7px 16px -8px rgba(0,0,0,0.75);
     box-shadow: 7px 7px 16px -8px rgba(0,0,0,0.75);
@@ -382,27 +367,88 @@ a:hover {
     left: 10px;
     right: 10px;
     bottom: 10px;
+}*/
+
+/*flip card*/
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    margin: 0 auto 30px auto;
+    /*border: 1px solid #f1f1f1;*/
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
-.education-block h5 {
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto 30px auto;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    -webkit-box-shadow: 7px 7px 16px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px 7px 16px -8px rgba(0,0,0,0.75);
+    box-shadow: 7px 7px 16px -8px rgba(0,0,0,0.75);
+}
+.flip-card-inner:before {
+    content: '';
+    position: absolute;
+    border: #373734 solid 1px;
+    border-radius: 10px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 99;
+}
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+    padding: 20px;
+}
+/* Style the back side */
+.flip-card-back {
+    transform: rotateY(180deg);
+    padding: 40px;
+}
+/* end flip card*/
+
+#education i {
+    font-size: 40px;
+    color: #000;
+}
+#education h3 {
+    color: #373734;
+}
+#education h4 {
+    margin-bottom: 20px;
+}
+#education h5 {
     color: #000000;
     font-size: 15px;
     margin: 15px 0;
 }
-.education-block i {
-    font-size: 40px;    color: #000;
-}
-.education-block h3 {
-    color: #373734;
-}
-.education-block h4 {
-    margin-bottom: 20px;
-}
-.education-block .red-divider {
-    margin-bottom: 20px;
-}
 .abstract_education {
     text-align: left;
-    margin-top: 15px;
+    /*margin-top: 15px;*/
 }
 .divider_education {
     width: 100px;
@@ -422,9 +468,9 @@ a:hover {
     /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../public/assets/images/acid5.jpg");
     background-size: 30rem;
     background-attachment: fixed;*/
-    background-image: $backGroundImage;
-    background-size: $backGroundSize;
-    background-attachment: $backGroundAttachment;
+    background-image: url("../images/art_deco.jpg");
+    background-size: 2rem;
+    background-attachment: fixed;
 }
 .row-portfolio {
     padding: 15px 0;
@@ -440,14 +486,14 @@ a:hover {
     }
 }
 #portfolio .heading h2 {
-    color: $black;
+    color: #000000;
 }
 #portfolio img {
     width: 100%;
     height: 100%;
 }
 .img-thumbnail {
-    border: 1px solid $black;
+    border: 1px solid #000000;
 }
 #portfolio img:hover {
     filter: grayscale(100%);
@@ -468,7 +514,7 @@ a:hover {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-image: $overImageDegrade;
+    background: linear-gradient(135deg,rgba(255,251,153,0.8)0%,rgba(255,208,208,0.9)28%,rgba(28,171,204,1)100%);
     padding: 0 15px;
     display: flex;
 }
@@ -478,7 +524,7 @@ a:hover {
 }
 
 .text {
-    color: $grey;
+    color: #333333;
     font-size: 17px;
     /*position: absolute;
     top: 50%;
@@ -492,7 +538,7 @@ a:hover {
 .divider_project {
     width: 100px;
     height: 1px;
-    background: $grey;
+    background: #333333;
     margin: 15px auto;
 }
 
@@ -500,7 +546,7 @@ a:hover {
 
 #recommandations {
     /*background-color: white;*/
-    background-image: $backGroundDegrade;
+    background: linear-gradient(135deg,rgba(255,251,153,0.3)0%,rgba(255,208,208,0.5)28%,rgba(28,171,204,0.2)100%);
 }
 #recommandations .heading h2 {
     color: #333333;
@@ -595,22 +641,22 @@ footer .chevron:hover{
     background-size: 30rem;
     background-attachment: fixed;*/
 
-    background-image: $backGroundImage;
-    background-size: $backGroundSize;
-    background-attachment: $backGroundAttachment;
+    background-image: url("../images/art_deco.jpg");
+    background-size: 2rem;
+    background-attachment: fixed;
 
 }
 #contact .heading h2 {
-    color: $black;
+    color: #000000;
 }
 #contact-form {
     font-size: 20px;
-    color: $black;
+    color: #000000;
 }
 .form-control {
     height: 50px;
     font-size: 18px;
-    border: 1px solid $black;
+    border: 1px solid #000000;
 }
 .comments {
     font-style: italic;
@@ -629,10 +675,10 @@ footer .chevron:hover{
     font-size: 22px;
 }
 
-// recaptcha
-#contact .g-recaptcha .rc-anchor-light.rc-anchor-normal {
-    border: 1px solid $black !important;
-}
+/*recaptcha*/
+   #contact .g-recaptcha .rc-anchor-light.rc-anchor-normal {
+       border: 1px solid #000000 !important;
+   }
 .rc-anchor-light {
     background: none!important;
     color: #000;
@@ -641,7 +687,7 @@ footer .chevron:hover{
 /*login*/
 
 #login {
-    background-image: $backGroundDegrade;
+    background: linear-gradient(135deg,rgba(255,251,153,0.3)0%,rgba(255,208,208,0.5)28%,rgba(28,171,204,0.2)100%);
 }
 #login form {
     max-width: 540px;
@@ -663,7 +709,7 @@ footer .chevron:hover{
 /*  informations   */
 
 #informations {
-    background-image: $backGroundDegrade;
+    background: linear-gradient(135deg,rgba(255,251,153,0.3)0%,rgba(255,208,208,0.5)28%,rgba(28,171,204,0.2)100%);
 }
 #informations .heading h2 {
     color: #333333;

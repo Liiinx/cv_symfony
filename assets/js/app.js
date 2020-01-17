@@ -8,14 +8,11 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import '../css/app.css';
 import '../css/animate.css';
-import '../css/style.scss';
+// import '../css/style.scss';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use  for styles
 AOS.init();
-
-// import '../js/script.js';
-// import '../js/scroll.js';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
