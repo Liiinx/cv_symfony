@@ -10,7 +10,9 @@
         "easycorp/easyadmin-bundle": "^2.3",
         "friendsofsymfony/ckeditor-bundle": "^2.1",
         "google/recaptcha": "^1.2",
+        "laminas/laminas-code": "^3.4",
         "sensio/framework-extra-bundle": "^5.1",
+        "sensiolabs/security-checker": "^6.0",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.3.*",
         "symfony/console": "4.3.*",
@@ -29,6 +31,7 @@
         "symfony/swiftmailer-bundle": "^3.1",
         "symfony/translation": "4.3.*",
         "symfony/twig-bundle": "4.3.*",
+        "symfony/twig-pack": "^1.0",
         "symfony/validator": "4.3.*",
         "symfony/web-link": "4.3.*",
         "symfony/webpack-encore-bundle": "^1.7",
@@ -70,7 +73,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"

@@ -429,6 +429,17 @@ a:hover {
     transform: rotateY(180deg);
     padding: 40px;
 }
+.flip-card-back:before {
+    content: '';
+    position: absolute;
+    border: #373734 solid 1px;
+    border-radius: 10px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 99;
+}
 /* end flip card*/
 
 #education i {
