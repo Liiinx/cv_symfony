@@ -9,11 +9,9 @@
             {% for key, experience in experiences %}
                 <li>
                     <div class="timeline-badge"><span><i class="fas fa-briefcase"></i></span></div>
-                    {% if key is even %}
-                        <div data-aos="fade-up-right" class="timeline-panel-container-inverted">
-                    {% else %}
-                        <div data-aos="fade-up-left" class="timeline-panel-container">
-                    {% endif %}
+                    <div {% if key is even %}data-aos="fade-up-right" class="timeline-panel-container-inverted js-screen"
+                         {% else %}data-aos="fade-up-left" class="timeline-panel-container js-screen"
+                            {% endif %}>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h3>{{ experience.business }}</h3>
@@ -35,3 +33,14 @@
         </ul>
     </div>
 </section>
+
+<script type="text/javascript">
+    // modifie l'attribut data-aos en fonction de la taille de la fenetre
+        let widthDoc = document.body.clientWidth;
+        const divs = document.getElementsByClassName('js-screen')
+        for (div of divs) {
+            if (widthDoc < 768) {
+                div.setAttribute('data-aos', 'fade-up-right');
+            }
+        }
+</script>

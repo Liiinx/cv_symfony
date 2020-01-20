@@ -9,7 +9,7 @@
 
         <div class="row row-portfolio">
             {% for project in projects %}
-                <div class="col-sm-4 portfolioImage">
+                <div class="col-sm-6 col-lg-4 portfolioImage">
                     <a href="{{ project.projectUrl }}" target="_blank">
                         <img class="img-thumbnail img-project lazyload" data-src="assets/images/{{ project.image }}" alt="{{ project.name }}">
                         <div class="overlay">
