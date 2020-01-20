@@ -10,6 +10,8 @@ import '../css/app.css';
 import '../css/animate.css';
 import '../css/style.scss';
 
+// import 'leaflet/dist/leaflet.css';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use  for styles
 AOS.init();

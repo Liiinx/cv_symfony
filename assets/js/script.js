@@ -14,7 +14,7 @@ $(function() {
         e.preventDefault();
 
         $('.comments').empty();
-        var postdata = $('#contact-form').serialize();
+        let postdata = $('#contact-form').serialize();
         // console.log(postdata);
 
         $.ajax({

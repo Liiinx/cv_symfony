@@ -3,7 +3,6 @@
 {% block title %}{{ about.name }}{% endblock %}
 
 {% block stylesheets %}
-{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />#}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
           crossorigin=""/>
@@ -14,6 +13,9 @@
 
     {% include 'cv/about.html.twig' %}
 {#    {{ render(controller('App\\Controller\\CvController::aboutMe')) }}#}
+    <div class="scroll-progress-container sticky-top sticky-offset">
+        <div class="scroll-progress-bar" id="myBar"></div>
+    </div>
     {% include 'cv/skill.html.twig' %}
     {% include 'cv/experience.html.twig' %}
     {% include 'cv/education.html.twig' %}
@@ -27,10 +29,11 @@
         {{ encore_entry_script_tags('typewriter') }}
         {#        <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>#}
         <!-- Make sure you put this AFTER Leaflet's CSS -->
-        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-                integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-                crossorigin=""></script>
-        <script src="assets/js/leaflet_map.js"></script>
+{#        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"#}
+{#                integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="#}
+{#                crossorigin=""></script>#}
+{#        <script src="assets/js/leaflet_map.js"></script>#}
+        {{ encore_entry_script_tags('leaflet') }}
     {% endblock %}
 
 {% endblock %}
