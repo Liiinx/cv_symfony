@@ -24,8 +24,12 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    // .addEntry('scroll', './assets/js/scroll.js')
+    .addEntry('scroll', './assets/js/scroll.js')
     .addEntry('typewriter', './assets/js/typewriter.js')
+    .addEntry('lazysizes', './assets/js/lazysizes.min.js')
+    .addEntry('leaflet', './assets/js/leaflet_map.js')
+    .addEntry('script', './assets/js/script.js')
+    .addEntry('algoliaPlaces', './assets/js/algoliaPlaces.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

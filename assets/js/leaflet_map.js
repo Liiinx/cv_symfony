@@ -1,10 +1,12 @@
-let data = document.getElementById('mapid');
+import L from 'leaflet'
+
+let data = document.getElementById('mapId');
 
 let lat = data.dataset.lat;
 let lng = data.dataset.lng;
 let address = data.dataset.address;
 
-let myMap = L.map('mapid').setView([lat, lng], 14);
+let myMap = L.map('mapId').setView([lat, lng], 14);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,

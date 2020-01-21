@@ -2,14 +2,15 @@
 <section id="education">
     <div class="red-divider"></div>
     <div class="heading">
-        <h2>{{ sectionAttribute.educationTitle }}</h2>
+        <h2 data-aos="zoom-in" data-aos-once="true">{{ sectionAttribute.educationTitle }}</h2>
     </div>
+
     <div class="container">
         <div class="row">
-            {% set delay = 0 %}
+{#            {% set delay = 0 %}#}
             {% for education in educations %}
             <div class="col-sm-6 col-lg-4">
-                <div data-aos="flip-left"
+               {# <div data-aos="flip-left"
                      data-aos-delay="{{ delay }}"
                      data-aos-once="true"
                      class="education-block" style="background-color: {{ education.bgColor }}">
@@ -20,9 +21,32 @@
                     <h5>{{ education.date }}</h5>
                     <div class="divider_education"></div>
                     <div class="abstract_education">{{ education.abstract|raw }}</div>
+                </div>#}
+{#                {% set delay = delay + 200 %}#}
+
+                {% set firstColor = educations[random(0, loop.length - 1)].bgColor %}
+                {% set secondColor = educations[random(0, loop.length - 1)].bgColor %}
+                {% set thirdColor = educations[random(0, loop.length - 1)].bgColor %}
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front " style="background-color: {{ education.bgColor }}">
+                            <span><i class="fas fa-graduation-cap"></i></span>
+                            <h3>{{ education.school }}</h3>
+                            <h4>{{ education.lessonName }}</h4>
+                            <div class="divider_education"></div>
+                            <h5>{{ education.date }}</h5>
+{#                            <div class="divider_education"></div>#}
+                        </div>
+{#                        <div class="flip-card-back" style="background-color: {{ educations[loop.revindex0].bgColor }}">#}
+                        <div class="flip-card-back"
+                             style="background: linear-gradient( {{ firstColor }} , {{ secondColor }} , {{ thirdColor }} )">
+                            <div class="abstract_education">{{ education.abstract|raw }}</div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-            {% set delay = delay + 200 %}
             {% endfor %}
         </div>
     </div>
